@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/inline.css">
+    {% seo %}
+  </head>
+  <body>
+    <header style="position: relative;">
+      <nav>
+        <hr>
+      </nav>
+      <h1>{{ page.title }}</h1>
+      {% if page.subtitle %}<h2>{{ page.subtitle }}</h2>{% endif %}
+      {% if page.tags %}
+      <nav class="tag-list">
+        Tags:
+        <ul>
+        {% assign sorted_tags = page.tags | sort %}
+        {% for tag in sorted_tags %}<li><a href="/tags/{{ tag }}/">{{ tag }}</a></li>{% endfor %}
+        </ul>
+      </nav>
+      {% endif %}
+      <hr>
+      <div style="position: absolute; left: -10em;">quack</div>
+    </header>
+    <section>
+      {{ content }}
+    </section>
+    <footer>
+      <hr>
+    </footer>
+  </body>
+</html>

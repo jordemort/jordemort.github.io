@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  blog:
+    build: .
+    command: [ "gulp", "serve" ]
+    ports:
+      - 127.0.0.1:4000:4000
+    volumes:
+      - .:/home/blog/app
+    tmpfs: /tmp

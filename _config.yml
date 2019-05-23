@@ -1,0 +1,57 @@
+title: jordemort's blog
+description: probably mostly tech
+timezone: America/Chicago
+
+highlighter: none
+
+exclude:
+  - _site/
+  - "*.css"
+  - "*.scss"
+  - Dockerfile
+  - Gemfile
+  - Gemfile.lock
+  - docker-compose.yml
+  - gulpfile.js
+  - package.json
+  - yarn.lock
+
+plugins:
+  - jekyll-feed
+  - jekyll/graphviz
+  - jekyll-katex
+  - jekyll-paginate-v2
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+katex:
+  js_path: /home/blog/yarn/katex/dist
+  rendering_options:
+    throw_error: true                       # throwOnError - set to false if you want rendering to output error as text rather than a build error
+    error_color: "#cc0000"
+
+pagination:
+  enabled: true
+  per_page: 5
+  permalink: '/:num/'
+  sort_field: 'date'
+  sort_reverse: true
+
+autopages:
+  enabled: true
+  categories:
+    enabled: false
+  collections:
+    enabled: false
+  tags:
+    enabled: true
+    layouts:
+      - 'index.html'
+    permalink: '/tags/:tag/'
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"

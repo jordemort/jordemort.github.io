@@ -1,0 +1,41 @@
+---
+layout: default
+---
+{{ content | markdownify }}
+
+{% for post in paginator.posts %}
+<article class="post-preview">
+  <header class="post-preview-header">
+    <h2 class="post-preview-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+    {% if post.subtitle %}<h3>{{ post.subtitle }}</h3>{% endif %}
+  </header>
+  <section class="post-preview-content">{{ post.excerpt }}</section>
+  <footer class="post-preview-footer">
+    <span class="post-preview-tags">Tags:
+      {% for tag in post.tags %}
+      <a href="/tags/{{ tag }}/">{{ tag }}</a>
+      {% endfor %}
+    </span>
+    <span class="post-preview-date">Posted on {{ post.date | date: '%B %d, %Y' }}</span>
+  </footer>
+</article>
+{% endfor %}
+
+{% if paginator.total_pages > 1 %}
+<nav class="pagination">
+  <span class="page-prev">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Prev</a>
+  {% else %}
+    &laquo; Prev
+  {% endif %}
+  </span>
+  <span class="page_next">
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
+  {% else %}
+    Next &raquo;
+  {% endif %}
+  </span>
+</nav>
+{% endif %}

@@ -1,0 +1,10 @@
+@import 'vs2015';
+@import 'katex.styles';
+
+.graphviz-wrapper {
+  text-align: center;
+}
+
+.graphviz-wrapper svg {
+  border: 1px solid black;
+}

@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'ebgaramond';
+  src: url('/assets/fonts/EBGaramond12-Regular.woff') format('woff');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ebgaramond';
+  src: url('/assets/fonts/EBGaramond12-Italic.woff') format('woff');
+  font-style: italic;
+}
