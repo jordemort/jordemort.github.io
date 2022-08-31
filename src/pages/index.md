@@ -1,0 +1,24 @@
+---
+layout: "../layouts/Index.astro"
+---
+
+Hi, I'm Jordan.
+I'm a systems engineer, which means that in addition to writing my own code, I solve problems that involve making lots of other peoples' code all work together.
+I build a lot of custom Linux distributions; I helped build two different ones for a company called Cleversafe, which is now [IBM Cloud Object Storage](https://www.ibm.com/cloud/object-storage).
+I worked on another one for GitHub, which lives inside of [GitHub Enterprise Server](https://docs.github.com/en/enterprise-server@3.5/admin/overview/about-github-enterprise-server).
+
+Currently, I'm freelancing, [writing articles](portfolio), investing tiny amounts of money in friends' companies, and working on a product of my own.
+
+I am most comfortable programming in Python or C; I can also be happy and productive in Ruby or Perl.
+I am very well-versed in bash and POSIX shell scripting.
+I have somewhat less experience with Go, but I am using it for more things lately and enjoying it.
+I just know enough JavaScript and TypeScript to keep myself out of trouble.
+
+I'm into Docker, OSTree, Podman, and systemd.
+When I'm not running a distribution I built myself, I tend to prefer Debian, Ubuntu, or, for smaller devices, OpenWRT.
+When I'm building a distribution that's that's not a Debian derivative, I use Yocto.
+
+I am available to hire on a contract basis.
+I can help you build your backend, set up your CI, package and publish your software, or even build another custom Linux distribution for you.
+I only work remotely.
+You can find my email address on my [GitHub profile](https://github.com/jordemort).
