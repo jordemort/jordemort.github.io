@@ -48,7 +48,7 @@ It's mostly here in the portfolio to prove that I can write Go.
 
 ### Contributions
 
-A selection of my contributions to various open source projects that I am particularly proud of:
+A selection of my contributions to open source projects:
 
 - I added [support for multiple peers, tunnels and proxies](https://github.com/octeep/wireproxy/pull/47) to [wireproxy](https://github.com/octeep/wireproxy/)
 - I fixed [compatibility with FFmpeg 5](https://github.com/raspberrypi/libcamera-apps/pull/335) in [libcamera-apps](https://github.com/raspberrypi/libcamera-apps/)
