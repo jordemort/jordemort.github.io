@@ -4,8 +4,9 @@ layout: "../layouts/Index.astro"
 
 Hi, I'm Jordan.
 I'm a systems engineer, which means that in addition to writing my own code, I solve problems that involve making lots of other peoples' code all work together.
-I build a lot of custom Linux distributions; I helped build two different ones for a company called Cleversafe, which is now [IBM Cloud Object Storage](https://www.ibm.com/cloud/object-storage).
-I worked on another one for GitHub, which lives inside of [GitHub Enterprise Server](https://docs.github.com/en/enterprise-server@3.5/admin/overview/about-github-enterprise-server).
+I build a lot of custom Linux distributions.
+I helped build two different ones for a company that used to be called Cleversafe, but is now [IBM Cloud Object Storage](https://www.ibm.com/cloud/object-storage).
+I worked on another distribution for GitHub, which lives inside of [GitHub Enterprise Server](https://docs.github.com/en/enterprise-server@3.5/admin/overview/about-github-enterprise-server).
 
 Currently, I'm freelancing, [writing articles](portfolio), investing tiny amounts of money in friends' companies, and working on a product of my own.
 
