@@ -12,6 +12,6 @@ I have somehow made it through most of my life without needing a blog, save for 
 
 This site is mostly here to serve my [portfolio](/portfolio/).
 
-It is built with [Astro](https://astro.build/) and [GitHub Actions](https://github.com/features/actions), and hosted on [GitHub Pages](https://pages.github.com/).
+It is built with [Astro](https://astro.build/) and [GitHub Actions](https://github.com/features/actions), and hosted on [GitHub Pages](https://pages.github.com/). You can check out [the source to this site](https://github.com/jordemort/jordemort.github.io), if you're interested.
 
 My avatar was drawn by [Jamie](https://linktr.ee/fakegamerjamie).
