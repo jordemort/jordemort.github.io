@@ -55,7 +55,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 										}
 									)}
 								</time>
-								<a href={post.url}>{post.frontmatter.title}</a>
+								<a href={post.url + "/"}>{post.frontmatter.title}</a>
 							</li>
 						))
 					}
