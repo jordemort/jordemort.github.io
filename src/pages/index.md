@@ -8,7 +8,7 @@ I build a lot of custom Linux distributions.
 I helped build two different ones for a company that used to be called Cleversafe, but is now [IBM Cloud Object Storage](https://www.ibm.com/cloud/object-storage).
 I worked on another distribution for GitHub, which lives inside of [GitHub Enterprise Server](https://docs.github.com/en/enterprise-server@3.5/admin/overview/about-github-enterprise-server).
 
-Currently, I'm freelancing, [writing articles](portfolio), investing tiny amounts of money in friends' companies, and working on a product of my own.
+Currently, I'm freelancing, [writing articles](portfolio), investing tiny amounts of money in friends' companies, and [working on a product of my own](https://caketop.app).
 
 I am most comfortable programming in Python or C; I can also be happy and productive in Ruby or Perl.
 I am very well-versed in bash and POSIX shell scripting.
