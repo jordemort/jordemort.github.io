@@ -8,7 +8,7 @@ pubDate: "Sep 1 2022"
 Caketop finally has a [website](https://caketop.app/).
 
 Like this site, it is hosted on [GitHub Pages](https://pages.github.com/) and built with [Astro](https://astro.build/).
-I still don't 100% know what I'm with Astro, but I've found it to be the least confusing among the various "modern" static site generators I've tried.
+I still don't 100% know what I'm doing with Astro, but I've found it to be the least confusing among the various "modern" static site generators I've tried.
 
 This time, I used [mhyfritz/astro-landing-page](https://github.com/mhyfritz/astro-landing-page) as a starting point.
 I think I did a pretty good job hacking it up.
