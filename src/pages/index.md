@@ -8,7 +8,7 @@ I build a lot of custom Linux distributions.
 I helped build two different ones for a company that used to be called Cleversafe, but is now [IBM Cloud Object Storage](https://www.ibm.com/cloud/object-storage).
 I worked on another distribution for GitHub, which lives inside of [GitHub Enterprise Server](https://docs.github.com/en/enterprise-server@3.5/admin/overview/about-github-enterprise-server).
 
-Currently, I'm freelancing, [writing articles](portfolio), investing tiny amounts of money in friends' companies, and [working on a product of my own](https://caketop.app).
+Currently, I'm [writing articles](portfolio), investing tiny amounts of money in friends' companies, and working on my own products and freelancing as [Caketop](https://caketop.app).
 
 I am most comfortable programming in Python or C; I can also be happy and productive in Ruby or Perl.
 I am very well-versed in bash and POSIX shell scripting.
@@ -22,4 +22,4 @@ When I'm building a distribution that's that's not a Debian derivative, I use Yo
 I am available to hire on a contract basis.
 I can help you build your backend, set up your CI, package and publish your software, or even build another custom Linux distribution for you.
 I only work remotely.
-You can find my email address on my [GitHub profile](https://github.com/jordemort).
+You can find my email address on my [GitHub profile](https://github.com/jordemort), or fill out the [contact form](https://caketop.app/#contact) on the Caketop website.
