@@ -5,6 +5,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://jordemort.github.io',
+	site: 'https://jordemort.dev',
 	integrations: [mdx(), sitemap()],
 });
