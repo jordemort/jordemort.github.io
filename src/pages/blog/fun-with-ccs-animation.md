@@ -1,7 +1,7 @@
 ---
 layout: "../../layouts/BlogPost.astro"
 title: "Fun with CSS animation"
-description: "Help, I'm turning into a frontend guy"
+description: "Help, I'm turning into a frontend dev"
 pubDate: "Sep 4 2022"
 ---
 
