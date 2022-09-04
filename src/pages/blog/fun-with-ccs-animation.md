@@ -11,7 +11,7 @@ It is based on this [snippet on CodePen](https://codepen.io/gulshansainis/pen/yL
 Things I learned:
 
 - When you specify multiple animations on an element, they all play at once. I expected them to play in sequence.
-- You can't use CSS variables to specify keyframe positions.
+- You can't use CSS variables to specify keyframe indices.
 - CSS positioning is still very much an exercise in "throw shit at the browser until it does what you want" for me.
 - `Object.entries` always returns `string` keys, even if your `Record` keys are typed as something else. Ugh.
 
