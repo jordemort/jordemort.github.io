@@ -37,6 +37,6 @@ In this case, only operating on Markdown is a plus; I wouldn't want to automatic
 I'm pretty happy with how this site is progressing, but there are still a few more things I'd like to do:
 
 - [Microformats!](http://microformats.org/) I will probably crib off of [Gumori](https://github.com/importantimport/gumori) for this.
-- Some sort of client-size search; I will probably use either [jackcarey/astro-lunr](https://github.com/jackcarey/astro-lunr) or [LyraSearch/plugin-astro](https://github.com/LyraSearch/plugin-astro) for this.
+- Some sort of client-side search; I will probably use either [jackcarey/astro-lunr](https://github.com/jackcarey/astro-lunr) or [LyraSearch/plugin-astro](https://github.com/LyraSearch/plugin-astro) for this.
 - Maybe spiff up the template just a little bit more?
 - Being able to tag posts with topics could be nice, and perhaps also beneficial from a SEO perspective.
