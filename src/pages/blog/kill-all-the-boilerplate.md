@@ -15,7 +15,7 @@ This is bothersome for a couple reasons.
 - The git repository that this blog lives already contains information about when a particular file was created or updated. Why am I doing the computer's job?
 
 At the suggestion of, and with a fair bit of debugging help from [@BryceRussell](https://github.com/BryceRussell), I was able to solve this by writing a [Remark plugin](https://github.com/jordemort/jordemort.github.io/blob/main/src/plugins/repodates.mjs).
-I initially dismissed this approach, because I wanted a solution that would work for any page in site, and Remark plugins only come into play when Markdown is being rendered.
+I initially dismissed this approach, because I wanted a solution that would work for any page in the site, and Remark plugins only come into play when Markdown is being rendered.
 After some consideration, though, I realized that I basically never want to author content in anything but Markdown; I even hacked up this theme to use Markdown for the index page.
 
 The plugin executes a couple of fancy git commands that I got off of Stack Overflow to figure out when a page was created, and when it was last changed.
