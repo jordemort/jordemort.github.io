@@ -35,6 +35,9 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 		<Header />
 		<main>
 			<section class="h-feed">
+				<header style="display: none;">
+					<a class="p-name u-url" href="https://jordemort.dev/blog/">Jordan Webb's blog</a>
+				</header>
 				<ul>
 					{
 						posts.map((post) => (
