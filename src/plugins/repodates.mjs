@@ -6,7 +6,7 @@ import * as os from "node:os";
 function gitPubDate(mdPath)  {
   try {
     const stdout = child.execFileSync(
-      "git", ["log", "--diff-filter=A", "--follow", "--format=%aD", "--", mdPath],
+      "git", ["log", "--diff-filter=A", "--follow", "--format=%ai", "--", mdPath],
       { encoding: "utf8" }
     );
 
@@ -19,7 +19,7 @@ function gitPubDate(mdPath)  {
 function gitUpdatedDate(mdPath) {
   try {
     return child.execFileSync(
-      "git", ["log", "-1", "--pretty=format:%aD", "--", mdPath],
+      "git", ["log", "-1", "--pretty=format:%ai", "--", mdPath],
       { encoding: "utf8" }
     ).trim();
   } catch (_) {

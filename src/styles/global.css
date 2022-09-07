@@ -78,6 +78,15 @@ blockquote {
 	font-style: italic;
 }
 
+main {
+	clear: both;
+}
+
+footer {
+	padding: 25px;
+	text-align: center;
+}
+
 @media (prefers-color-scheme: dark) {
 	body {
 		background-color: #111;

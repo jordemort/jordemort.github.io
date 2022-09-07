@@ -10,6 +10,7 @@ export interface Props {
 		pubDate?: string;
 		updatedDate?: string;
 		heroImage?: string;
+		tags?: string[];
 	};
 }
 
@@ -36,48 +37,52 @@ const {
 	<body>
 		<Header />
 		<main>
-			<article>
-				{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-				<h1 class="title">{title}</h1>
-				<slot />
+			<article class="h-entry">
+				<header>
+					{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
+					<h1 class="title p-name">{title}</h1>
+				</header>
+				<div class="e-content">
+					<slot />
+				</div>
+				<footer>
+					<hr />
+					{
+						pubDate && (
+							<div>
+								Published on{" "}
+								<time class="dt-published" datetime={pubDate}>
+									{new Date(pubDate).toLocaleDateString("en-us", {
+										year: "numeric",
+										month: "short",
+										day: "numeric",
+										hour: "numeric",
+										minute: "2-digit",
+										timeZoneName: "short",
+									})}
+								</time>
+							</div>
+						)
+					}
+					{
+						updatedDate && (
+							<div>
+								Last updated on{" "}
+								<time class="dt-updated" datetime={updatedDate}>
+									{new Date(updatedDate).toLocaleDateString("en-us", {
+										year: "numeric",
+										month: "short",
+										day: "numeric",
+										hour: "numeric",
+										minute: "2-digit",
+										timeZoneName: "short",
+									})}
+								</time>
+							</div>
+						)
+					}
+				</footer>
 			</article>
 		</main>
-		<Footer>
-			<hr />
-			{
-				pubDate && (
-					<div>
-						Published on{" "}
-						<time>
-							{new Date(pubDate).toLocaleDateString("en-us", {
-								year: "numeric",
-								month: "short",
-								day: "numeric",
-								hour: "numeric",
-								minute: "2-digit",
-								timeZoneName: "short",
-							})}
-						</time>
-					</div>
-				)
-			}
-			{
-				updatedDate && (
-					<div>
-						Last updated on{" "}
-						<time>
-							{new Date(updatedDate).toLocaleDateString("en-us", {
-								year: "numeric",
-								month: "short",
-								day: "numeric",
-								hour: "numeric",
-								minute: "2-digit",
-								timeZoneName: "short",
-							})}
-						</time>
-					</div>
-				)
-			}
-		</Footer>
 	</body>
 </html>

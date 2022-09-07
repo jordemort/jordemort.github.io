@@ -34,12 +34,12 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 	<body>
 		<Header />
 		<main>
-			<section>
+			<section class="h-feed">
 				<ul>
 					{
 						posts.map((post) => (
-							<li>
-								<time datetime={post.frontmatter.pubDate}>
+							<li class="h-entry">
+								<time class="dt-published" datetime={post.frontmatter.pubDate}>
 									{new Date(post.frontmatter.pubDate).toLocaleDateString(
 										"en-us",
 										{
@@ -49,7 +49,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 										}
 									)}
 								</time>
-								<a href={post.url + "/"}>{post.frontmatter.title}</a>
+								<a class="p-title u-url" href={post.url + "/"}>{post.frontmatter.title}</a>
 							</li>
 						))
 					}
