@@ -10,12 +10,13 @@ export interface Props {
 		pubDate?: string;
 		updatedDate?: string;
 		heroImage?: string;
+		schema?: string;
 		tags?: string[];
 	};
 }
 
 const {
-	content: { title, description, pubDate, updatedDate, heroImage },
+	content: { title, description, pubDate, updatedDate, heroImage, schema = "http://schema.org/BlogPosting"},
 } = Astro.props;
 ---
 
@@ -37,12 +38,12 @@ const {
 	<body>
 		<Header />
 		<main>
-			<article class="h-entry">
+			<article class="h-entry" itemscope itemtype={schema}>
 				<header>
 					{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-					<h1 class="title p-name">{title}</h1>
+					<h1 class="title p-name" itemprop="headline">{title}</h1>
 				</header>
-				<div class="e-content">
+				<div class="e-content" itemprop="articleBody">
 					<slot />
 				</div>
 				<footer>
@@ -51,7 +52,7 @@ const {
 						pubDate && (
 							<div>
 								Published on{" "}
-								<time class="dt-published" datetime={pubDate}>
+								<time class="dt-published" itemprop="datePublished" datetime={pubDate}>
 									{new Date(pubDate).toLocaleDateString("en-us", {
 										year: "numeric",
 										month: "short",
@@ -68,7 +69,7 @@ const {
 						updatedDate && (
 							<div>
 								Last updated on{" "}
-								<time class="dt-updated" datetime={updatedDate}>
+								<time class="dt-updated" itemprop="dateModified" datetime={updatedDate}>
 									{new Date(updatedDate).toLocaleDateString("en-us", {
 										year: "numeric",
 										month: "short",
