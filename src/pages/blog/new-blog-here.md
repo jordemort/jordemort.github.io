@@ -1,8 +1,6 @@
 ---
-layout: "../../layouts/BlogPost.astro"
 title: "New blog here"
 description: "First post! Will it be the last?"
-pubDate: "Aug 31 2022"
 ---
 
 Hi, welcome to my new site.

@@ -1,8 +1,6 @@
 ---
-layout: "../../layouts/BlogPost.astro"
 title: "Fun with CSS animation"
 description: "Help, I'm turning into a frontend dev"
-pubDate: "Sep 4 2022"
 ---
 
 I added a fancy little animation to [Caketop's website](https://caketop.app/).
@@ -13,7 +11,7 @@ Things I learned about CSS animation:
 - When you specify multiple animations on an element, they all play at once. I expected them to play in sequence.
 - You can't use CSS variables to specify keyframe indices.
 
-Those two things together seem to make it impossible to create a dynamic chain of animations purely in CSS. 
+Those two things together seem to make it impossible to create a dynamic chain of animations purely in CSS.
 Instead, I had to resort to writing some TypeScript to generate my `@keyframes` based on how many items I waned to animate.
 If you'd like, you can inspect the [result of my efforts](https://github.com/caketop/caketop.github.io/blob/main/src/components/flipper.astro).
 

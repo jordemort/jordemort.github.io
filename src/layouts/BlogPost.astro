@@ -6,7 +6,7 @@ import Footer from "../components/Footer.astro";
 export interface Props {
 	content: {
 		title: string;
-		description: string;
+		description?: string;
 		pubDate?: string;
 		updatedDate?: string;
 		heroImage?: string;
@@ -47,14 +47,34 @@ const {
 			{
 				pubDate && (
 					<div>
-						Published on <time>{pubDate}</time>
+						Published on{" "}
+						<time>
+							{new Date(pubDate).toLocaleDateString("en-us", {
+								year: "numeric",
+								month: "short",
+								day: "numeric",
+								hour: "numeric",
+								minute: "2-digit",
+								timeZoneName: "short",
+							})}
+						</time>
 					</div>
 				)
 			}
 			{
 				updatedDate && (
 					<div>
-						Last updated on <time>{updatedDate}</time>
+						Last updated on{" "}
+						<time>
+							{new Date(updatedDate).toLocaleDateString("en-us", {
+								year: "numeric",
+								month: "short",
+								day: "numeric",
+								hour: "numeric",
+								minute: "2-digit",
+								timeZoneName: "short",
+							})}
+						</time>
 					</div>
 				)
 			}
