@@ -3,17 +3,38 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
+
+html {
+	scrollbar-gutter: stable;
+}
+
 body {
-	font-family: Verdana, sans-serif;
+	font-family: "Source Sans Pro", sans-serif;
 	margin: auto;
 	padding: 20px;
-	max-width: 65ch;
+	max-width: 640px;
 	text-align: left;
 	background-color: #fff;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	line-height: 1.5;
 	color: #444;
+	font-size: 14pt;
+}
+
+@media only screen and (min-width: 700) {
+	body {
+		width: 640px;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	letter-spacing: -0.025em;
 }
 
 h1,
@@ -80,7 +101,7 @@ blockquote {
 
 main {
 	clear: both;
-	margin-top: 1rem;
+	padding-top: 1rem;
 }
 
 footer {
@@ -91,6 +112,7 @@ footer {
 .title {
 	font-size: 2em;
 	margin: 0.25em 0 0;
+	font-weight: 700;
 }
 
 hr {

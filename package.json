@@ -15,5 +15,8 @@
     "astro": "^1.1.6",
     "astro-compress": "^1.0.7",
     "feed": "^4.2.2"
+  },
+  "dependencies": {
+    "@fontsource/source-sans-pro": "^4.5.11"
   }
 }
