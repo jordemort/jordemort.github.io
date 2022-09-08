@@ -80,7 +80,10 @@ const content = {
 							>
 								{post.frontmatter.title}
 							</a>
-							{post.frontmatter.description && <br /><span class="description p-summary">{post.frontmatter.description}</span>}
+							{post.frontmatter.description &&
+								<br />
+								<span class="description p-summary" itemprop="abstract">{post.frontmatter.description}</span>
+							}
 						</td>
 					</tr>
 				))
