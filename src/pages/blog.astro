@@ -18,16 +18,28 @@ const content = {
 <Skeleton content={content}>
 	<style slot="head">
 		.posts {
-			list-style-type: none;
-			padding: unset;
+			table-layout: fixed;
+			border: none;
 		}
-		.posts li {
-			display: flex;
+
+		.posts tr {
+			border: none;
 		}
-		.posts li time {
-			flex: 0 0 130px;
+
+		.posts td {
+			border: none;
+		}
+
+		.postDate {
+			width: 8rem;
+			white-space: nowrap;
+			font-weight: bold;
+			vertical-align: top;
+		}
+
+		.description {
 			font-style: italic;
-			color: #888;
+			font-size: smaller;
 		}
 	</style>
 	<style lang="css">
@@ -42,16 +54,16 @@ const content = {
 		<HeaderLink href="/atom.xml">Atom</HeaderLink>
 		<HeaderLink href="/feed.json">JSON Feed</HeaderLink>
 	</span>
-	<section class="h-feed" itemscope itemtype="https://schema.org/Blog">
-		<ul class="posts">
+	<table class="h-feed posts" itemscope itemtype="https://schema.org/Blog">
 			{
 				posts.map((post) => (
-					<li
+					<tr
 						class="h-entry"
 						itemprop="blogPost"
 						itemscope
 						itemtype="https://schema.org/BlogPosting"
 					>
+					<td class="postDate">
 						<time
 							class="dt-published"
 							itemprop="datePublished"
@@ -63,6 +75,8 @@ const content = {
 								day: "numeric",
 							})}
 						</time>
+					</td>
+					<td class="postInfo">
 						<a
 							class="p-name u-url"
 							itemprop="name headline"
@@ -70,10 +84,12 @@ const content = {
 						>
 							{post.frontmatter.title}
 						</a>
-					</li>
+						{post.frontmatter.description && <br /><span class="description">{post.frontmatter.description}</span>}
+					</td>
+					</tr>
 				))
 			}
-		</ul>
+		</table>
 		<link class="p-name u-url" title="Jordan Webb's blog" href="https://jordemort.dev/blog/" />
 	</section>
 </Skeleton>
