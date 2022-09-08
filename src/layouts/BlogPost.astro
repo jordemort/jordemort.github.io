@@ -44,6 +44,19 @@ const skeletonContent = {
 <Skeleton content={skeletonContent}>
 	<slot name="head" slot="head" />
 	<slot name="nav" slot="nav" />
+	<style>
+		.postdate {
+			font-size: smaller;
+			font-weight: 300;
+			text-align: right;
+		}
+
+		.description {
+			font-size: smaller;
+			font-weight: 300;
+			font-style: italic;
+		}
+	</style>
 	<article class="h-entry" itemscope itemtype="https://schema.org/BlogPosting">
 		<header>
 			{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
@@ -54,27 +67,26 @@ const skeletonContent = {
 			<slot />
 		</div>
 		<footer>
-			<hr />
-			<div>
-				Published on{" "}
+			<div class="postdate">
+				Posted on{" "}
 				<time class="dt-published" itemprop="datePublished" datetime={pubDate}>
 					{formatDate(pubDate)}
 				</time>
 			</div>
 			{
-				updatedDate && (
-					<div>
-						Last updated on{" "}
-						<time
-							class="dt-updated"
-							itemprop="dateModified"
-							datetime={updatedDate}
-						>
-							{formatDate(updatedDate)}
-						</time>
-					</div>
-				)
-			}
+					updatedDate && (
+						<div class="postdate">
+							Last updated on{" "}
+							<time
+								class="dt-updated"
+								itemprop="dateModified"
+								datetime={updatedDate}
+							>
+								{formatDate(updatedDate)}
+							</time>
+						</div>
+					)
+				}
 		</footer>
 	</article>
 </Skeleton>
