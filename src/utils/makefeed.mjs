@@ -1,5 +1,4 @@
 import { Feed } from "feed";
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 
 export function makeFeed() {
   let posts = Object.values(
@@ -15,8 +14,8 @@ export function makeFeed() {
   console.log(posts);
 
   let feed = new Feed({
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
+    title: "Jordan Webb's blog",
+    description: "Development notes and technical musings",
     id: import.meta.env.SITE,
     link: import.meta.env.SITE,
     language: "en",
