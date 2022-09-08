@@ -17,6 +17,11 @@
     "feed": "^4.2.2"
   },
   "dependencies": {
-    "@fontsource/source-sans-pro": "^4.5.11"
+    "@fontsource/source-code-pro": "^4.5.12",
+    "@fontsource/source-sans-pro": "^4.5.11",
+    "rehype-accessible-emojis": "^0.3.2",
+    "rehype-katex": "^6.0.2",
+    "remark-gemoji": "^7.0.1",
+    "remark-math": "^5.1.1"
   }
 }

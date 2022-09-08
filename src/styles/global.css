@@ -11,8 +11,10 @@ html {
 body {
 	font-family: "Source Sans Pro", sans-serif;
 	margin: auto;
-	padding: 20px;
-	max-width: 640px;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-bottom: 2rem;
+	max-width: 44rem;
 	text-align: left;
 	background-color: #fff;
 	word-wrap: break-word;
@@ -22,10 +24,17 @@ body {
 	font-size: 14pt;
 }
 
-@media only screen and (min-width: 700) {
+@media only screen and (min-width: 48rem) {
 	body {
-		width: 640px;
+		width: 44rem;
 	}
+}
+
+code,
+kbd,
+samp,
+tt {
+	font-family: "Source Code Pro", monospace;
 }
 
 h1,
@@ -78,25 +87,19 @@ img {
 	height: auto;
 }
 
-code {
-	padding: 2px 5px;
-	background-color: #f2f2f2;
-}
-
 pre {
 	padding: 1rem;
 }
 
 pre>code {
 	all: unset;
+	font-size: 12pt;
 }
 
 blockquote {
-	border: 1px solid #999;
-	color: #222;
+	border: 1px dotted #999;
 	padding: 2px 0px 2px 20px;
 	margin: 0px;
-	font-style: italic;
 }
 
 main {
@@ -122,7 +125,6 @@ hr {
 header > .description {
 	font-size: smaller;
 	font-style: italic;
-	opacity: 0.8;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -145,13 +147,5 @@ header > .description {
 
 	a {
 		color: #9e98f2;
-	}
-
-	code {
-		background-color: #000;
-	}
-
-	blockquote {
-		color: #f0f3bd
 	}
 }
