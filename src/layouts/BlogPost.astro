@@ -1,12 +1,11 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
+import Skeleton from "./Skeleton.astro";
 
 export interface Props {
 	content: {
 		title: string;
 		description?: string;
-		pubDate?: string;
+		pubDate: string;
 		updatedDate?: string;
 		heroImage?: string;
 		schema?: string;
@@ -14,75 +13,69 @@ export interface Props {
 	};
 }
 
+function formatDate(dateString: string): string {
+	return new Date(dateString).toLocaleDateString("en-us", {
+		year: "numeric",
+		month: "short",
+		day: "numeric",
+		hour: "numeric",
+		minute: "2-digit",
+		timeZoneName: "short",
+	});
+}
+
 const {
-	content: { title, description, pubDate, updatedDate, heroImage, schema = "http://schema.org/BlogPosting"},
+	content: {
+		title,
+		description,
+		pubDate,
+		updatedDate,
+		heroImage,
+		schema = "https://schema.org/BlogPosting",
+	},
 } = Astro.props;
+
+const skeletonContent = {
+	title: title,
+	description: description,
+	image: heroImage
+}
 ---
 
-<html>
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			.title {
-				font-size: 2em;
-				margin: 0.25em 0 0;
+<Skeleton content={skeletonContent}>
+	<slot name="head" slot="head" />
+	<slot name="nav" slot="nav" />
+	<article class="h-entry" itemscope itemtype={schema}>
+		<header>
+			{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
+			<h1 class="title p-name" itemprop="headline">{title}</h1>
+			{description && <div class="p-summary description">{description}</div>}
+		</header>
+		<div class="e-content" itemprop="articleBody">
+			<slot />
+		</div>
+		<footer>
+			<hr />
+			<div>
+				Published on{" "}
+				<time class="dt-published" itemprop="datePublished" datetime={pubDate}>
+					{formatDate(pubDate)}
+				</time>
+			</div>
+			{
+				updatedDate && (
+					<div>
+						Last updated on{" "}
+						<time
+							class="dt-updated"
+							itemprop="dateModified"
+							datetime={updatedDate}
+						>
+							{formatDate(updatedDate)}
+						</time>
+					</div>
+				)
 			}
-			hr {
-				border-top: 1px solid #ddd;
-				margin: 1rem 0;
-			}
-		</style>
-	</head>
-
-	<body>
-		<Header />
-		<main>
-			<article class="h-entry" itemscope itemtype={schema}>
-				<header>
-					{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-					<h1 class="title p-name" itemprop="headline">{title}</h1>
-				</header>
-				<div class="e-content" itemprop="articleBody">
-					<slot />
-				</div>
-				<footer>
-					<hr />
-					{
-						pubDate && (
-							<div>
-								Published on{" "}
-								<time class="dt-published" itemprop="datePublished" datetime={pubDate}>
-									{new Date(pubDate).toLocaleDateString("en-us", {
-										year: "numeric",
-										month: "short",
-										day: "numeric",
-										hour: "numeric",
-										minute: "2-digit",
-										timeZoneName: "short",
-									})}
-								</time>
-							</div>
-						)
-					}
-					{
-						updatedDate && (
-							<div>
-								Last updated on{" "}
-								<time class="dt-updated" itemprop="dateModified" datetime={updatedDate}>
-									{new Date(updatedDate).toLocaleDateString("en-us", {
-										year: "numeric",
-										month: "short",
-										day: "numeric",
-										hour: "numeric",
-										minute: "2-digit",
-										timeZoneName: "short",
-									})}
-								</time>
-							</div>
-						)
-					}
-				</footer>
-			</article>
-		</main>
-	</body>
-</html>
+		</footer>
+	</article>
+</Skeleton>

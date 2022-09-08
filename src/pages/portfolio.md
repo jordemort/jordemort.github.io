@@ -1,8 +1,6 @@
 ---
-layout: "../layouts/BlogPost.astro"
 title: "Portfolio"
 description: "Things that I have done"
-updatedDate: "August 31 2022"
 ---
 
 ### Articles

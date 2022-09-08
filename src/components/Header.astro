@@ -1,15 +1,16 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
-import { SITE_TITLE } from "../config";
 ---
 
 <header>
-	<h2>
+	<h2 itemprop="author" itemscope itemtype="https://schema.org/Person">
 		<img
+			itemprop="image"
 			style="border-radius: 50%; height: 4em; width: 4em; float: right;"
 			src="https://avatars.githubusercontent.com/jordemort"
 		/>
-		{SITE_TITLE}
+		<span itemprop="name">Jordan Webb</span>
+		<meta itemprop="url" content="https://jordemort.dev/" />
 	</h2>
 	<nav>
 		<HeaderLink href="/">Home</HeaderLink>
@@ -22,12 +23,15 @@ import { SITE_TITLE } from "../config";
 		<HeaderLink href="https://github.com/jordemort" target="_blank"
 			>GitHub</HeaderLink
 		>
+		<slot name="nav" />
 	</nav>
 </header>
 <style>
+	/*
 	header {
-		margin: 0em 0 3em;
+		margin: 0em 0 1rem;
 	}
+	*/
 	h2 {
 		margin: 0.5em 0;
 	}

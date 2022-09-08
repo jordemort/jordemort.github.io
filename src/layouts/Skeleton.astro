@@ -1,0 +1,37 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+
+export interface Props {
+  content: {
+    title?: string;
+    description?: string;
+    image?: string;
+  };
+}
+
+const {
+  content: { title, description, image },
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <BaseHead
+      title={title || SITE_TITLE}
+      description={description || SITE_DESCRIPTION}
+      image={image}
+    />
+    <slot name="head" />
+  </head>
+  <body itemscope itemtype="https://schema.org/WebPage">
+    <Header title={title || SITE_TITLE}>
+      <slot name="nav" slot="nav" />
+    </Header>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

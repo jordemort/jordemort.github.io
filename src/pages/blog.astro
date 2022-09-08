@@ -1,7 +1,7 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import { Icon } from "astro-icon";
+import HeaderLink from "../components/HeaderLink.astro";
+import Skeleton from "../layouts/Skeleton.astro";
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
@@ -9,58 +9,77 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 		new Date(b.frontmatter.pubDate).valueOf() -
 		new Date(a.frontmatter.pubDate).valueOf()
 );
+
+const content = {
+	title: "Jordan Webb's blog",
+	description: "Development notes and technical musings",
+};
 ---
 
-<!DOCTYPE html>
-<html lang="en-us">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			ul {
-				list-style-type: none;
-				padding: unset;
+<Skeleton content={content}>
+	<style slot="head">
+		.posts {
+			list-style-type: none;
+			padding: unset;
+		}
+		.posts li {
+			display: flex;
+		}
+		.posts li time {
+			flex: 0 0 130px;
+			font-style: italic;
+			color: #888;
+		}
+	</style>
+	<style lang="css">
+		[astro-icon] {
+			height: 1rem;
+			width: 1rem;
+		}
+	</style>
+	<span class="feedlinks" slot="nav">
+		<br />
+		<HeaderLink href="/rss.xml">RSS</HeaderLink>
+		<HeaderLink href="/atom.xml">Atom</HeaderLink>
+		<HeaderLink href="/feed.json">JSON Feed</HeaderLink>
+	</span>
+	<section class="h-feed" itemscope itemtype="https://schema.org/Blog">
+		<ul class="posts">
+			{
+				posts.map((post) => (
+					<li
+						class="h-entry"
+						itemprop="blogPost"
+						itemscope
+						itemtype="https://schema.org/BlogPosting"
+					>
+						<time
+							class="dt-published"
+							itemprop="datePublished"
+							datetime={post.frontmatter.pubDate}
+						>
+							{new Date(post.frontmatter.pubDate).toLocaleDateString("en-us", {
+								year: "numeric",
+								month: "short",
+								day: "numeric",
+							})}
+						</time>
+						<a
+							class="p-name u-url"
+							itemprop="name headline"
+							href={post.url + "/"}
+						>
+							{post.frontmatter.title}
+						</a>
+					</li>
+				))
 			}
-			ul li {
-				display: flex;
-			}
-			ul li time {
-				flex: 0 0 130px;
-				font-style: italic;
-				color: #888;
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section class="h-feed">
-				<header style="display: none;">
-					<a class="p-name u-url" href="https://jordemort.dev/blog/">Jordan Webb's blog</a>
-				</header>
-				<ul>
-					{
-						posts.map((post) => (
-							<li class="h-entry">
-								<time class="dt-published" datetime={post.frontmatter.pubDate}>
-									{new Date(post.frontmatter.pubDate).toLocaleDateString(
-										"en-us",
-										{
-											year: "numeric",
-											month: "short",
-											day: "numeric",
-										}
-									)}
-								</time>
-								<a class="p-name u-url" href={post.url + "/"}>{post.frontmatter.title}</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-			<footer>
-				<hr />
-				<a href="/rss.xml">RSS</a>
-			</footer>
-		</main>
-	</body>
-</html>
+		</ul>
+		<meta
+			class="p-name"
+			itemprop="name headline"
+			content="Jordan Webb's blog"
+		/>
+		<meta class="u-url" itemprop="url" content="https://jordemort.dev/blog/" />
+	</section>
+</Skeleton>

@@ -1,7 +1,3 @@
----
-layout: "../layouts/Index.astro"
----
-
 Hi, I'm Jordan.
 I'm a systems engineer, which means that in addition to writing my own code, I solve problems that involve making lots of other peoples' code all work together.
 I build a lot of custom Linux distributions.

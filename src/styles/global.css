@@ -80,11 +80,27 @@ blockquote {
 
 main {
 	clear: both;
+	margin-top: 1rem;
 }
 
 footer {
-	padding: 25px;
+	padding: 1rem;
 	text-align: center;
+}
+
+.title {
+	font-size: 2em;
+	margin: 0.25em 0 0;
+}
+
+hr {
+	border-top: 1px solid #ddd;
+}
+
+header > .description {
+	font-size: smaller;
+	font-style: italic;
+	opacity: 0.8;
 }
 
 @media (prefers-color-scheme: dark) {
