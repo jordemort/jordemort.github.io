@@ -74,11 +74,10 @@ const content = {
 						</td>
 						<td class="postInfo">
 							<a
-								class="p-name u-url"
-								itemprop="name headline"
+								class="u-url"
 								href={post.url + "/"}
 							>
-								{post.frontmatter.title}
+								<span class="p-name" itemprop="name headline">{post.frontmatter.title}</span>
 							</a>
 							{post.frontmatter.description &&
 								<br />
