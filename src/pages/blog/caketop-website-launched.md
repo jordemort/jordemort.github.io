@@ -1,6 +1,12 @@
 ---
 title: "Caketop website launched"
 description: "There's finally something at caketop.app"
+tags:
+  - astro
+  - botpoison
+  - caketop
+  - formspark
+  - plausible
 ---
 
 Caketop finally has a [website](https://caketop.app/).

@@ -1,6 +1,10 @@
 ---
 title: Kill all the boilerplate
 description: In which I cater to my own laziness
+tags:
+  - astro
+  - git
+  - meta
 ---
 
 For this site, I started with [Astro](https://astro.build/)'s example [blog template](https://github.com/withastro/astro/tree/main/examples/blog).

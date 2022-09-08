@@ -1,6 +1,11 @@
 ---
 title: "Fun with CSS animation"
 description: "Help, I'm turning into a frontend dev"
+tags:
+  - astro
+  - animation
+  - css
+  - caketop
 ---
 
 I added a fancy little animation to [Caketop's website](https://caketop.app/).
