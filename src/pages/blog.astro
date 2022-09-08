@@ -42,19 +42,15 @@ const content = {
 			font-size: smaller;
 		}
 	</style>
-	<style lang="css">
-		[astro-icon] {
-			height: 1rem;
-			width: 1rem;
-		}
-	</style>
+
 	<span class="feedlinks" slot="nav">
 		<br />
 		<HeaderLink href="/rss.xml">RSS</HeaderLink>
 		<HeaderLink href="/atom.xml">Atom</HeaderLink>
 		<HeaderLink href="/feed.json">JSON Feed</HeaderLink>
 	</span>
-	<table class="h-feed posts" itemscope itemtype="https://schema.org/Blog">
+	<section class="h-feed" itemscope itemtype="https://schema.org/Blog">
+		<table class="posts">
 			{
 				posts.map((post) => (
 					<tr
@@ -63,33 +59,33 @@ const content = {
 						itemscope
 						itemtype="https://schema.org/BlogPosting"
 					>
-					<td class="postDate">
-						<time
-							class="dt-published"
-							itemprop="datePublished"
-							datetime={post.frontmatter.pubDate}
-						>
-							{new Date(post.frontmatter.pubDate).toLocaleDateString("en-us", {
-								year: "numeric",
-								month: "short",
-								day: "numeric",
-							})}
-						</time>
-					</td>
-					<td class="postInfo">
-						<a
-							class="p-name u-url"
-							itemprop="name headline"
-							href={post.url + "/"}
-						>
-							{post.frontmatter.title}
-						</a>
-						{post.frontmatter.description && <br /><span class="description">{post.frontmatter.description}</span>}
-					</td>
+						<td class="postDate">
+							<time
+								class="dt-published"
+								itemprop="datePublished"
+								datetime={post.frontmatter.pubDate}
+							>
+								{new Date(post.frontmatter.pubDate).toLocaleDateString("en-us", {
+									year: "numeric",
+									month: "short",
+									day: "numeric",
+								})}
+							</time>
+						</td>
+						<td class="postInfo">
+							<a
+								class="p-name u-url"
+								itemprop="name headline"
+								href={post.url + "/"}
+							>
+								{post.frontmatter.title}
+							</a>
+							{post.frontmatter.description && <br /><span class="description p-summary">{post.frontmatter.description}</span>}
+						</td>
 					</tr>
 				))
 			}
 		</table>
-		<link class="p-name u-url" title="Jordan Webb's blog" href="https://jordemort.dev/blog/" />
+		<link class="p-name u-url" itemprop="url" title="Jordan Webb's blog" href="https://jordemort.dev/blog/" />
 	</section>
 </Skeleton>
