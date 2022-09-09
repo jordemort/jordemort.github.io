@@ -7,13 +7,14 @@ import { repoDatesPlugin } from "./src/plugins/repodates.mjs";
 import { defaultLayoutPlugin } from './src/plugins/defaultlayout.mjs';
 import remarkGemoji from 'remark-gemoji';
 import remarkMath from 'remark-math';
-//import remarkMermaid from 'remark-mermaidjs';
 import { remarkKroki } from 'remark-kroki';
 import remarkPluginOembed from "remark-plugin-oembed";
 
 import rehypeKatex from 'rehype-katex';
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
-import chromium from 'chromium';
+import rehypeRaw from "rehype-raw";
+import rehypeRewrite from "rehype-rewrite";
+
 
 export default defineConfig({
   site: 'https://jordemort.dev',
@@ -38,7 +39,25 @@ export default defineConfig({
     ],
     rehypePlugins: [
       rehypeKatex,
-      rehypeAccessibleEmojis
+      rehypeAccessibleEmojis,
+      rehypeRaw,
+      [rehypeRewrite, {
+        selector: ".kroki svg",
+        rewrite: (node) => {
+          delete node.properties.style;
+
+          let height = node.properties.height;
+          delete node.properties.height;
+
+          let width = node.properties.width;
+          delete node.properties.width;
+
+          node.properties.preserveAspectRatio = "xMidYMid";
+          if (height && width && !node.properties.viewBox) {
+            node.properties.viewBox = `0 0 ${width} ${height}`;
+          }
+        }
+      }]
     ],
     shikiConfig: {
       theme: "dark-plus"

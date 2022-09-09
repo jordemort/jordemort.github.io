@@ -11,8 +11,6 @@ export function makeFeed() {
     posts.length = 10;
   }
 
-  console.log(posts);
-
   let feed = new Feed({
     title: "Jordan Webb's blog",
     description: "Development notes and technical musings",

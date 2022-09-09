@@ -19,10 +19,11 @@
   "dependencies": {
     "@fontsource/source-code-pro": "^4.5.12",
     "@fontsource/source-sans-pro": "^4.5.11",
-    "chromium": "^3.0.3",
     "puppeteer-core": "17.1.1",
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-katex": "^6.0.2",
+    "rehype-raw": "^6.1.1",
+    "rehype-rewrite": "^3.0.6",
     "remark-gemoji": "^7.0.1",
     "remark-kroki": "github:jordemort/remark-kroki",
     "remark-math": "^5.1.1",

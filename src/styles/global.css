@@ -137,6 +137,21 @@ code {
 	background-color: #f0f0f0;
 }
 
+.kroki {
+	width: 100%;
+}
+
+.kroki svg {
+	max-width: 98%;
+	width: 98%;
+	height: auto;
+}
+
+.oembed-container > * {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 @media (prefers-color-scheme: dark) {
 	body {
 		background-color: #111;
@@ -163,21 +178,7 @@ code {
 		background-color: #000000;
 	}
 
-}
-
-.kroki {
-	width: 100%;
-	height: unset;
-	background-color: white;
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
-}
-
-.kroki svg {
-	max-width: 100%;
-}
-
-.oembed-container > :first-child {
-	margin-left: auto;
-	margin-right: auto;
+	.kroki svg {
+		filter: invert(100%);
+	}
 }

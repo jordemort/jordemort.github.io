@@ -54,6 +54,11 @@ https://www.youtube.com/watch?v=50wElcsgCxQ
 
 https://twitter.com/dasharez0ne/status/1562245779644747776
 
+This one gave me a bit of a scare.
+While debugging other things on this page, I saw requests going out to Google servers.
+How did external content snuck on to my dev server, I wondered?
+The answer is simple: I embedded it.
+
 ## Diagrams
 
 GitHub recently announced [support](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams) for [Mermaid](https://mermaid-js.github.io/mermaid/) diagrams in Markdown.
@@ -125,7 +130,7 @@ digraph {
 }
 ```
 
-It also supports PlantUML:
+It also supports [PlantUML](https://plantuml.com/):
 
 ```plantuml
 @startmindmap
@@ -170,8 +175,49 @@ The best format that Kroki supports is definitely [Svgbob](https://ivanceras.git
 ```
 
 One mild inconvenience: the graphs are always rendered for display on light backgrounds, which isn't great if the background of the page is dark, as it is on this site for folks whose browsers have been told to prefer dark themes.
-For now, I'm styling the `<div class='kroki'>` to always have a white background, even if you're browsing in dark mode.
-Eventually I might look into using CSS to invert the colors of the SVG.
+To deal with this, I've added a bit of CSS to invert the colors if the site is in dark mode:
+
+```css
+.kroki svg {
+  filter: invert(100%);
+}
+```
+
+The `<svg>` tags that Kroki returns often often come with `height` and `width` and/or `style` attributes that I wish weren't there.
+I'd prefer to do all the styling myself, so that the diagrams scale to the browser window.
+To strip out the unwanted styling, I'm using [jaywcjlove/rehype-rewrite](https://github.com/jaywcjlove/rehype-rewrite).
+Because the diagrams get inserted as `raw` nodes, the HTML isn't usually parsed, so I also had to add in [rehype-raw](https://github.com/rehypejs/rehype-raw):
+
+```javascript
+export default defineConfig({
+  ...
+    rehypePlugins: [
+        ...
+        rehypeRaw,
+        [rehypeRewrite, {
+            selector: ".kroki svg",
+            rewrite: (node) => {
+                delete node.properties.style;
+
+                let height = node.properties.height;
+                delete node.properties.height;
+
+                let width = node.properties.width;
+                delete node.properties.width;
+
+                node.properties.preserveAspectRatio = "xMidYMid";
+                /* add viewBox if it isn't there */
+                if (height && width && !node.properties.viewBox) {
+                    node.properties.viewBox = `0 0 ${width} ${height}`;
+                }
+            }
+        }]
+    ],
+    ...
+  }
+});
+
+```
 
 ## Syntax highlighting
 
@@ -212,7 +258,6 @@ func Starlark_init(self *C.Starlark, args *C.PyObject, kwargs *C.PyObject) C.int
 ```
 
 All I did here was switch the theme to Dark Plus.
-
 
 ## What's left?
 
