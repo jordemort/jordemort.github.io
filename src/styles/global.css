@@ -146,6 +146,7 @@ code {
 	width: 100%;
 	height: auto;
 	background-color: white;
+	margin: 1px;
 }
 
 .oembed-container > * {
