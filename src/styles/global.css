@@ -165,13 +165,16 @@ code {
 
 }
 
-p > svg:first-child {
+.kroki {
 	width: 100%;
 	height: unset;
 	background-color: white;
-	border: 1px dotted #999;
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
+}
+
+.kroki svg {
+	max-width: 100%;
 }
 
 .oembed-container > :first-child {

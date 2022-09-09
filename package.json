@@ -24,8 +24,8 @@
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-katex": "^6.0.2",
     "remark-gemoji": "^7.0.1",
+    "remark-kroki": "github:jordemort/remark-kroki",
     "remark-math": "^5.1.1",
-    "remark-mermaidjs": "^3.0.0",
     "remark-plugin-oembed": "^0.1.0"
   }
 }

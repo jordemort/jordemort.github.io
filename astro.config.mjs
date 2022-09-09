@@ -7,7 +7,8 @@ import { repoDatesPlugin } from "./src/plugins/repodates.mjs";
 import { defaultLayoutPlugin } from './src/plugins/defaultlayout.mjs';
 import remarkGemoji from 'remark-gemoji';
 import remarkMath from 'remark-math';
-import remarkMermaid from 'remark-mermaidjs';
+//import remarkMermaid from 'remark-mermaidjs';
+import { remarkKroki } from 'remark-kroki';
 import remarkPluginOembed from "remark-plugin-oembed";
 
 import rehypeKatex from 'rehype-katex';
@@ -29,7 +30,11 @@ export default defineConfig({
       remarkGemoji,
       remarkMath,
       remarkPluginOembed,
-      [remarkMermaid, {launchOptions: {executablePath: chromium.path}}]
+      [remarkKroki, {
+        server: "https://kroki.io",
+        alias: ["graphviz", "mermaid", "plantuml", "svgbob"],
+        inline: true
+      }]
     ],
     rehypePlugins: [
       rehypeKatex,
