@@ -159,3 +159,12 @@ code {
 	}
 
 }
+
+p > svg:first-child {
+	width: 100%;
+	height: unset;
+	background-color: white;
+	border: 1px dotted #999;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
