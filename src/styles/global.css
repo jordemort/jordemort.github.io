@@ -14,7 +14,6 @@ body {
 	padding-left: 1rem;
 	padding-right: 1rem;
 	padding-bottom: 2rem;
-	max-width: 80ch;
 	text-align: left;
 	background-color: #fff;
 	word-wrap: break-word;
@@ -24,9 +23,9 @@ body {
 	font-size: 14pt;
 }
 
-@media only screen and (min-width: 100ch) {
+@media only screen and (min-width: 800px) {
 	body {
-		width: 80ch;
+		max-width: 800px;
 	}
 }
 
