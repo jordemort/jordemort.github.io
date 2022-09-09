@@ -3,7 +3,7 @@ import HeaderLink from "./HeaderLink.astro";
 ---
 
 <header>
-	<h2 itemprop="author" itemscope itemtype="https://schema.org/Person">
+	<h1 itemprop="author" itemscope itemtype="https://schema.org/Person">
 		<img
 			itemprop="image"
 			style="border-radius: 50%; height: 4em; width: 4em; float: right;"
@@ -27,10 +27,9 @@ import HeaderLink from "./HeaderLink.astro";
 	</nav>
 </header>
 <style>
-
-	h2 {
-		margin: 0.5em 0;
-		letter-spacing: -0.025em;
+	h1 {
+		margin-top: 1rem;
+		margin-bottom: 0.5rem;
 		font-weight: 600;
 	}
 </style>
