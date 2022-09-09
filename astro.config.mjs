@@ -36,7 +36,7 @@ export default defineConfig({
       rehypeAccessibleEmojis
     ],
     shikiConfig: {
-      theme: "github-dark"
+      theme: "dark-plus"
     }
   }
 });
