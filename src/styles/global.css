@@ -142,9 +142,10 @@ code {
 }
 
 .kroki svg {
-	max-width: 98%;
-	width: 98%;
+	max-width: 100%;
+	width: 100%;
 	height: auto;
+	background-color: white;
 }
 
 .oembed-container > * {
