@@ -123,6 +123,10 @@ hr {
 	border-top: 1px solid #ddd;
 }
 
+code {
+	background-color: #f0f0f0;
+}
+
 @media (prefers-color-scheme: dark) {
 	body {
 		background-color: #111;
@@ -144,4 +148,9 @@ hr {
 	a {
 		color: #9e98f2;
 	}
+
+	code {
+		background-color: #000000;
+	}
+
 }
