@@ -97,9 +97,14 @@ pre>code {
 }
 
 blockquote {
-	border: 1px dotted #999;
-	padding: 2px 0px 2px 20px;
+	border: 1px solid #777;
+	padding: 1rem;
 	margin: 0px;
+}
+
+blockquote :last-child {
+	padding-bottom: 0;
+	margin-bottom: 0;
 }
 
 main {
