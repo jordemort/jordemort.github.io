@@ -7,7 +7,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 	(a, b) =>
 		new Date(b.frontmatter.pubDate).valueOf() -
 		new Date(a.frontmatter.pubDate).valueOf()
-);
+).filter((post) => !post.frontmatter.unlisted);
 
 const content = {
 	title: "Jordan Webb's blog",
