@@ -199,16 +199,16 @@ export default defineConfig({
         [rehypeRewrite, {
             selector: ".kroki svg",
             rewrite: (node) => {
-                delete node.properties.style;
-
                 let height = node.properties.height;
-                delete node.properties.height;
-
                 let width = node.properties.width;
+
+                delete node.properties.style;
+                delete node.properties.height;
                 delete node.properties.width;
 
                 node.properties.preserveAspectRatio = "xMidYMid";
-                /* add viewBox if it isn't there */
+
+                /* if there is no viewBox, synthesize one */
                 if (height && width && !node.properties.viewBox) {
                     node.properties.viewBox = `0 0 ${width} ${height}`;
                 }
