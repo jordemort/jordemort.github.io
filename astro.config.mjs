@@ -8,8 +8,7 @@ import { defaultLayoutPlugin } from './src/plugins/defaultlayout.mjs';
 import remarkGemoji from 'remark-gemoji';
 import remarkMath from 'remark-math';
 import remarkMermaid from 'remark-mermaidjs';
-
-//import mdxMermaidPlugin from '@julian_cataldo/astro-diagram';
+import remarkPluginOembed from "remark-plugin-oembed";
 
 import rehypeKatex from 'rehype-katex';
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
@@ -29,6 +28,7 @@ export default defineConfig({
       defaultLayoutPlugin,
       remarkGemoji,
       remarkMath,
+      remarkPluginOembed,
       [remarkMermaid, {launchOptions: {executablePath: chromium.path}}]
     ],
     rehypePlugins: [

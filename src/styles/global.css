@@ -173,3 +173,8 @@ p > svg:first-child {
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
 }
+
+.oembed-container > :first-child {
+	margin-left: auto;
+	margin-right: auto;
+}
