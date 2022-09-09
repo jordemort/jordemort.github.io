@@ -178,8 +178,10 @@ One mild inconvenience: the graphs are always rendered for display on light back
 To deal with this, I've added a bit of CSS to invert the colors if the site is in dark mode:
 
 ```css
-.kroki svg {
-  filter: invert(100%);
+@media (prefers-color-scheme: dark) {
+    .kroki svg {
+        filter: invert(100%);
+    }
 }
 ```
 
