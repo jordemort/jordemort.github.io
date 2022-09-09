@@ -79,7 +79,7 @@ sequenceDiagram
 ```
 
 Again, I tried a few different solutions here; the one I settled on was [nice-move/remark-kroki](https://github.com/nice-move/remark-kroki).
-This is built on top of [Kroki](https://kroki.io/), which is an extremely cool service that provides a single API a huge assortment of diagram languages.
+This is built on top of [Kroki](https://kroki.io/), which is an extremely cool service that provides a single API to a huge assortment of diagram languages.
 It's easy to [self-host Kroki](https://docs.kroki.io/kroki/setup/install/); eventually I'll get around to spinning a copy of it up during my build process, but for now I'm using their [free service](https://kroki.io/#try); this doesn't seem to come with any drawbacks, aside from not being personally in control of its uptime.
 
 I wasn't 100% happy with how the plugin rendered diagrams; instead of creating an inline `<svg>` element, it created an `<img>` tag with the `src` set to a base64-encoded data URL containing the SVG.
