@@ -212,6 +212,7 @@ export default defineConfig({
   markdown: {
     ...
     rehypePlugins: [
+      ...
       rehypeRaw,
       [rehypeRewrite, {
         selector: ".kroki svg",
