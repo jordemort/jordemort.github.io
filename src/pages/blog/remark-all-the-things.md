@@ -126,7 +126,7 @@ digraph {
   cdn -> docker_build [dir=back,label="request\nRPMs"];
 
   docker_hub -> docker_build [dir=back,label="request\nbase image"];
-  docker_build -> docker_hub [label="pulbish\nderived containers"];
+  docker_build -> docker_hub [label="publish\nderived containers"];
 }
 ```
 
