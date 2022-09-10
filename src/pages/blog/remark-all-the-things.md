@@ -179,9 +179,9 @@ To deal with this, I've added a bit of CSS to invert the colors if the site is i
 
 ```css
 @media (prefers-color-scheme: dark) {
-    .kroki svg {
-        filter: invert(100%);
-    }
+  .kroki svg {
+    filter: invert(100%);
+  }
 }
 ```
 
