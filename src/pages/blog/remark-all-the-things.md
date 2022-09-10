@@ -191,74 +191,42 @@ To strip out the unwanted styling, I'm using [jaywcjlove/rehype-rewrite](https:/
 Because the diagrams get inserted as `raw` nodes, the HTML isn't usually parsed, so I also had to add in [rehype-raw](https://github.com/rehypejs/rehype-raw):
 
 ```javascript
+function rewriteKrokiSVG(node) {
+  let height = node.properties.height;
+  let width = node.properties.width;
+
+  delete node.properties.style;
+  delete node.properties.height;
+  delete node.properties.width;
+
+  node.properties.preserveAspectRatio = "xMidYMid";
+
+  /* if there is no viewBox, synthesize one */
+  if (height && width && !node.properties.viewBox) {
+    node.properties.viewBox = `0 0 ${width} ${height}`;
+  }
+}
+
 export default defineConfig({
   ...
+  markdown: {
+    ...
     rehypePlugins: [
-        ...
-        rehypeRaw,
-        [rehypeRewrite, {
-            selector: ".kroki svg",
-            rewrite: (node) => {
-                let height = node.properties.height;
-                let width = node.properties.width;
-
-                delete node.properties.style;
-                delete node.properties.height;
-                delete node.properties.width;
-
-                node.properties.preserveAspectRatio = "xMidYMid";
-
-                /* if there is no viewBox, synthesize one */
-                if (height && width && !node.properties.viewBox) {
-                    node.properties.viewBox = `0 0 ${width} ${height}`;
-                }
-            }
-        }]
+      rehypeRaw,
+      [rehypeRewrite, {
+        selector: ".kroki svg",
+        rewrite: rewriteKrokiSVG
+      }]
     ],
     ...
   }
 });
-
 ```
 
 ## Syntax highlighting
 
+As seen above.
 I didn't really have to do anything special for this, as Astro already comes with the [Shiki](https://shiki.matsu.io/) syntax highlighter.
-
-```go
-//export Starlark_init
-func Starlark_init(self *C.Starlark, args *C.PyObject, kwargs *C.PyObject) C.int {
-  var globals *C.PyObject = nil
-  var print *C.PyObject = nil
-
-  if C.parseInitArgs(args, kwargs, &globals, &print) == 0 {
-    return -1
-  }
-
-  if print != nil {
-    if Starlark_set_print(self, print, nil) != 0 {
-      return -1
-    }
-  }
-
-  if globals != nil {
-    if C.PyMapping_Check(globals) != 1 {
-      errmsg := C.CString(fmt.Sprintf("Can't initialize globals from %s", C.GoString(globals.ob_type.tp_name)))
-      defer C.free(unsafe.Pointer(errmsg))
-      C.PyErr_SetString(C.PyExc_TypeError, errmsg)
-      return -1
-    }
-
-    retval := Starlark_set_globals(self, args, globals)
-    if retval == nil {
-      return -1
-    }
-  }
-
-  return 0
-}
-```
-
 All I did here was switch the theme to Dark Plus.
 
 ## What's left?
