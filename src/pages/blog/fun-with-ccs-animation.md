@@ -9,7 +9,9 @@ tags:
 ---
 
 I added a fancy little animation to [Caketop's website](https://caketop.app/).
-It is based on this [snippet on CodePen](https://codepen.io/gulshansainis/pen/yLymJRd?editors=1001).
+It is based on this snippet on CodePen:
+
+https://codepen.io/gulshansainis/pen/yLymJRd?editors=1001
 
 Things I learned about CSS animation:
 
