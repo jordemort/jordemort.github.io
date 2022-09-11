@@ -87,6 +87,8 @@ Aside from being inefficient, this prevented text selection from working inside 
 I [modified the plugin](https://github.com/nice-move/remark-kroki/pull/1) to return an inline `<svg>` tag instead (and wrapped it in a `<div class='kroki'>` for ease of styling.)
 Hopefully the maintainer is interested in my changes; if not, I might finally publish my first thing on NPM.
 
+(**NOTE**: This approach ended up causing some problems, see the [next post](/blog/fixing-leaky-svg-style-tags/) to find out how I solved them!)
+
 As I mentioned, Kroki supports a lot more than Mermaid.
 As a huge nerd, I especially appreciate that it supports [Graphviz](https://graphviz.org/):
 
