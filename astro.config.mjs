@@ -15,22 +15,7 @@ import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 import rehypeRaw from "rehype-raw";
 import rehypeRewrite from "rehype-rewrite";
 
-
-function rewriteKrokiSVG(node) {
-  let height = node.properties.height;
-  let width = node.properties.width;
-
-  delete node.properties.style;
-  delete node.properties.height;
-  delete node.properties.width;
-
-  node.properties.preserveAspectRatio = "xMidYMid";
-
-  /* if there is no viewBox, synthesize one */
-  if (height && width && !node.properties.viewBox) {
-    node.properties.viewBox = `0 0 ${width} ${height}`;
-  }
-}
+import { rewriteKroki } from './src/utils/rewriteKroki.mjs';
 
 export default defineConfig({
   site: 'https://jordemort.dev',
@@ -59,7 +44,7 @@ export default defineConfig({
       rehypeRaw,
       [rehypeRewrite, {
         selector: ".kroki svg",
-        rewrite: rewriteKrokiSVG
+        rewrite: rewriteKroki
       }]
     ],
     shikiConfig: {

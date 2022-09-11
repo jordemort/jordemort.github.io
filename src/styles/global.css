@@ -111,9 +111,9 @@ main {
 	padding-top: 0.5rem;
 }
 
-main :first-child {
+main>:first-child {
 	margin-top: 0;
-	padding-top: 0;
+	/* padding-top: 0; */
 }
 
 footer {
@@ -152,6 +152,22 @@ code {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+.astro-code {
+	position: relative;
+	counter-reset: lineno 0;
+}
+
+.astro-code code .line::before {
+  content: counter(lineno);
+  counter-increment: lineno;
+  width: 1rem;
+  margin-right: 1.5rem;
+  display: inline-block;
+  text-align: right;
+  color: rgba(115,138,148,.4)
+}
+
 
 @media (prefers-color-scheme: dark) {
 	body {

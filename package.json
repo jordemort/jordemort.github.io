@@ -19,6 +19,7 @@
   "dependencies": {
     "@fontsource/source-code-pro": "^4.5.12",
     "@fontsource/source-sans-pro": "^4.5.11",
+    "css": "^3.0.0",
     "puppeteer-core": "17.1.1",
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-katex": "^6.0.2",

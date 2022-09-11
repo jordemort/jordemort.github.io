@@ -1,24 +1,23 @@
 import css from "css";
-import { v4 as uuidv4 } from 'uuid';
 
-const stripProps = /(?<=^|;)\s*(?=min-|max-)?(height|width)\s*:\s*([^;]+)\s*;?/gim;
+const stripStyle = /(?<=^|;)\s*(?=min-|max-)?(height|width)\s*:\s*([^;]+)\s*;?/gim;
 
 function isMermaid(node) {
   return node.properties.id && node.properties.id.startsWith("mermaid-");
 }
 
-function rewriteCSS(styles, uuid) {
+function rewriteCSS(styles, node_id) {
   let parsed = css.parse(styles);
 
-  // add uuid to all selectors
+  // add node_id to all selectors
   parsed.stylesheet.rules.forEach((rule) => {
-    rule.selectors = rule.selectors.map((selector) => `#${uuid} ${selector}`);
+    rule.selectors = rule.selectors.map((selector) => `#${node_id} ${selector}`);
   });
 
   return css.stringify(parsed);
 }
 
-function rewriteStyles(node, uuid)
+function rewriteStyles(node, node_id)
 {
   if (node.type != "element") {
     return;
@@ -26,14 +25,14 @@ function rewriteStyles(node, uuid)
 
   if (node.tagName != "style") {
     // rewrite any child <style> tags
-    node.children.forEach((child) => { rewriteStyles(child, uuid); });
+    node.children.forEach((child) => { rewriteStyles(child, node_id); });
     return;
   }
 
   // rewrite CSS in text nodes
   node.children.forEach((child) => {
     if (child.type === "text") {
-      child.value = rewriteCSS(child.value, uuid);
+      child.value = rewriteCSS(child.value, node_id);
     }
   });
 }
@@ -43,7 +42,7 @@ export function rewriteKroki(node) {
   let width = node.properties.width;
 
   if (node.properties.style) {
-    node.properties.style = node.properties.style.replace(stripProps, "");
+    node.properties.style = node.properties.style.replace(stripStyle, "");
   }
 
   delete node.properties.height;
@@ -61,10 +60,16 @@ export function rewriteKroki(node) {
     return
   }
 
-  // give the svg a unique ID
-  let uuid = "fig-" + uuidv4();
-  node.properties.id = uuid;
+  // generate a unique ID for the node based on its position
+  let node_id = "svg-" + [
+    node.position.start.line,
+    node.position.start.column,
+    node.position.start.offset
+  ].join("-");
 
-  // scope any inline <style>s include the ID
-  rewriteStyles(node, uuid);
+  // give the node the ID we generated
+  node.properties.id = node_id;
+
+  // rewrite all the styles to include the node ID
+  rewriteStyles(node, node_id);
 }
