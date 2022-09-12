@@ -16,6 +16,7 @@ export function makeFeed() {
     description: "Development notes and technical musings",
     id: import.meta.env.SITE,
     link: import.meta.env.SITE,
+    hub: "https://pubsubhubbub.appspot.com/",
     language: "en",
     copyright: "2022 Jordan Webb",
     feedLinks: {
