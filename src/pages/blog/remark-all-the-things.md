@@ -1,6 +1,19 @@
 ---
 title: Remark (and Rehype) all the things
 description: Give me all your plugins
+tags:
+  - astro
+  - meta
+  - remark
+  - rehype
+  - diagrams
+  - mermaid
+  - plantuml
+  - graphviz
+  - svgbob
+  - oembed
+  - katex
+  - svg
 ---
 
 As touched upon in a [previous post](/blog/kill-all-the-boilerplate/), [Astro](https://astro.build/) supports using [Remark](https://github.com/remarkjs/remark) plugins, which can be used to customize how Markdown is transformed into HTML.
