@@ -9,13 +9,14 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 		new Date(a.frontmatter.pubDate).valueOf()
 ).filter((post) => !post.frontmatter.unlisted);
 
-const content = {
+const skeletonContent = {
 	title: "Jordan Webb's blog",
 	description: "Development notes and technical musings",
+	isFeed: true
 };
 ---
 
-<Skeleton content={content}>
+<Skeleton content={skeletonContent}>
 	<style slot="head">
 		.posts {
 			table-layout: fixed;
@@ -49,7 +50,7 @@ const content = {
 		<HeaderLink href="/atom.xml">Atom</HeaderLink>
 		<HeaderLink href="/feed.json">JSON Feed</HeaderLink>
 	</span>
-	<section class="h-feed" itemscope itemtype="https://schema.org/Blog">
+	<section>
 		<table class="posts">
 			{
 				posts.map((post) => (

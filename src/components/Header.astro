@@ -2,18 +2,38 @@
 import HeaderLink from "./HeaderLink.astro";
 ---
 
-<header>
-	<h1 itemprop="author" itemscope itemtype="https://schema.org/Person">
+<style>
+	h1 {
+		margin-top: 1rem;
+		margin-bottom: 0.5rem;
+		font-weight: 600;
+	}
+
+	h1 img {
+		border-radius: 50%;
+		height: 8rem;
+		width: 8rem;
+		float: right;
+	}
+</style>
+<header
+	class="p-author h-card"
+	itemprop="author"
+	itemscope
+	itemtype="https://schema.org/Person"
+>
+	<h1>
 		<img
 			itemprop="image"
-			style="border-radius: 50%; height: 8rem; width: 8rem; float: right;"
+			class="u-photo"
 			src="https://avatars.githubusercontent.com/jordemort"
 		/>
-		<span itemprop="name">Jordan Webb</span>
-		<meta itemprop="url" content="https://jordemort.dev/" />
+		<span class="p-name" itemprop="name">Jordan Webb</span>
 	</h1>
 	<nav>
-		<HeaderLink href="/">Home</HeaderLink>
+		<HeaderLink class="u-url" itemprop="url" href="/" rel="author"
+			>Home</HeaderLink
+		>
 		<HeaderLink href="/portfolio/">Portfolio</HeaderLink>
 		<HeaderLink href="/blog/">Blog</HeaderLink>
 		<HeaderLink
@@ -26,10 +46,3 @@ import HeaderLink from "./HeaderLink.astro";
 		<slot name="nav" />
 	</nav>
 </header>
-<style>
-	h1 {
-		margin-top: 1rem;
-		margin-bottom: 0.5rem;
-		font-weight: 600;
-	}
-</style>

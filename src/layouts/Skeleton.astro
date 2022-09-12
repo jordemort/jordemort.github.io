@@ -8,12 +8,25 @@ export interface Props {
     title?: string;
     description?: string;
     image?: string;
+    isBlogPost?: boolean;
+    isFeed?: boolean;
   };
 }
 
 const {
-  content: { title, description, image },
+  content: { title, description, image, isBlogPost, isFeed },
 } = Astro.props;
+
+let microformat = "";
+let schema = "https://schema.org/WebPage";
+
+if (isFeed) {
+  microformat = "h-feed";
+  schema = "https://schema.org/Blog";
+} else if (isBlogPost) {
+  microformat = "h-entry";
+  schema = "https://schema.org/BlogPosting";
+}
 ---
 
 <!DOCTYPE html>
@@ -26,7 +39,7 @@ const {
     />
     <slot name="head" />
   </head>
-  <body itemscope itemtype="https://schema.org/WebPage">
+  <body class={microformat} itemscope itemtype={schema}>
     <Header title={title || SITE_TITLE}>
       <slot name="nav" slot="nav" />
     </Header>

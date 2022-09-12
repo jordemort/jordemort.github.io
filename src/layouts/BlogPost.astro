@@ -37,7 +37,8 @@ const {
 const skeletonContent = {
 	title: title,
 	description: description,
-	image: heroImage
+	image: heroImage,
+	isBlogPost: true
 }
 ---
 
@@ -61,7 +62,7 @@ const skeletonContent = {
 			padding-top: 1rem;
 		}
 	</style>
-	<article class="h-entry" itemscope itemtype="https://schema.org/BlogPosting">
+	<article>
 		<header>
 			{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
 			<h1 class="title p-name" itemprop="headline">{title}</h1>
@@ -78,19 +79,19 @@ const skeletonContent = {
 				</time>
 			</div>
 			{
-					updatedDate && (
-						<div class="postdate">
-							Last updated on{" "}
-							<time
-								class="dt-updated"
-								itemprop="dateModified"
-								datetime={updatedDate}
-							>
-								{formatDate(updatedDate)}
-							</time>
-						</div>
-					)
-				}
+				updatedDate && (
+					<div class="postdate">
+						Last updated on{" "}
+						<time
+							class="dt-updated"
+							itemprop="dateModified"
+							datetime={updatedDate}
+						>
+							{formatDate(updatedDate)}
+						</time>
+					</div>
+				)
+			}
 		</footer>
 	</article>
 </Skeleton>
