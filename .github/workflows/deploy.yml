@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-        
+
       - name: Install, build, and upload your site
         uses: withastro/action@v0
 
@@ -38,3 +38,13 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+
+  notify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Webmentions
+        run: |
+          curl --fail-with-body \
+            -u "${{ secrets.MY_HOOK_USER }}:${{ secrets.MY_HOOK_PASSWORD }}" \
+            https://hook.jordemort.dev/pushl
