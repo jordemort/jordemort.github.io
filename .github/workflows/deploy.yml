@@ -45,6 +45,6 @@ jobs:
     steps:
       - name: Send Webmentions
         run: |
-          curl --fail-with-body \
+          curl --fail \
             -u "${{ secrets.MY_HOOK_USER }}:${{ secrets.MY_HOOK_PASSWORD }}" \
             https://hook.jordemort.dev/pushl
