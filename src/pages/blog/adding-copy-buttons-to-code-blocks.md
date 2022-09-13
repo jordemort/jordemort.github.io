@@ -286,7 +286,7 @@ Ideally, what I'd like to do is briefly flash the message "Copied!" somewhere ne
 First, another template for the message:
 
 ```html
-<template id="copiedTooltipTemplate">
+<template id="copiedFeedbackTemplate">
   <div class="copied">Copied!</div>
 </template>
 ```
@@ -302,7 +302,7 @@ First, another template for the message:
 }
 ```
 
-First the positioning; like the button, we position the tooltip `absolute`, put it 0.5em away from the top, and give it a `z-index` of 100.
+First the positioning; like the button, we position the feedback `absolute`, put it 0.5em away from the top, and give it a `z-index` of 100.
 The magic is in `right: -90px` &mdash; this positions the element off of the right edge of the parent `<div>`, like this:
 
 ```svgbob
@@ -322,16 +322,16 @@ Now I need to extend the code to create the "Copied!" message and add it to the 
 First, I need to get the template out of the DOM:
 
 ```typescript
-const copiedTooltip = (document.getElementById("copiedTooltipTemplate") as HTMLTemplateElement).content.firstElementChild!;
+const copiedFeedback = (document.getElementById("copiedFeedbackTemplate") as HTMLTemplateElement).content.firstElementChild!;
 ```
 
 Now I can add it to the `<div>`.
 I don't want it to display unless the button is clicked, so I'm going to give it `display: none` initially.
-The `copier` function is going to need to act on the tooltip, so it needs to be added as a parameter to `makeCopier` as well:
+The `copier` function is going to need to act on the feedback `<div>`, so it needs to be added as a parameter to `makeCopier` as well:
 
 ```typescript
   let button = copyButton.cloneNode(true) as HTMLButtonElement;
-  let feedback = copiedTooltip.cloneNode(true) as HTMLDivElement;
+  let feedback = copiedFeedback.cloneNode(true) as HTMLDivElement;
 
   feedback.style.display = "none";
 
@@ -413,7 +413,7 @@ Since this site is built with Astro, it makes the most sense for me to throw all
   /* all the styles... */
 </style>
 <template id="copyButtonTemplate">...</template>
-<template id="copiedTooltipTemplate">...</template>
+<template id="copiedFeedbackTemplate">...</template>
 <script>
   function makeCopier(...) { ... }
   ...

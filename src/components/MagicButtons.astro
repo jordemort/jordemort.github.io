@@ -78,25 +78,25 @@
     ></svg
   ></button>
 </template>
-<template id="copiedTooltipTemplate">
+<template id="copiedFeedbackTemplate">
   <div class="copied">Copied!</div>
 </template>
 <script>
 
-function makeCopier(block: HTMLElement, button: HTMLButtonElement, tooltip: HTMLDivElement) {
+function makeCopier(block: HTMLElement, button: HTMLButtonElement, feedback: HTMLDivElement) {
   let code = block.querySelector("code")!;
 
   async function copier() {
     await navigator.clipboard.writeText(code.innerText);
     button.classList.add("clicked");
-    tooltip.style.display = "block";
+    feedback.style.display = "block";
 
     setTimeout(() => {
       button.classList.remove("clicked")
     }, 100);
 
     setTimeout(() => {
-      tooltip.style.display = "none";
+      feedback.style.display = "none";
     }, 500);
   }
 
@@ -105,7 +105,7 @@ function makeCopier(block: HTMLElement, button: HTMLButtonElement, tooltip: HTML
 
 function addMagicButtons() {
   const copyButton = (document.getElementById("copyButtonTemplate") as HTMLTemplateElement).content.firstElementChild!;
-  const copiedTooltip = (document.getElementById("copiedTooltipTemplate") as HTMLTemplateElement).content.firstElementChild!;
+  const copiedFeedback = (document.getElementById("copiedFeedbackTemplate") as HTMLTemplateElement).content.firstElementChild!;
 
   document.querySelectorAll("pre").forEach((block) => {
     if (navigator.clipboard) {
@@ -113,14 +113,14 @@ function addMagicButtons() {
       div.classList.add("code-buttons");
 
       let button = copyButton.cloneNode(true) as HTMLButtonElement;
-      let tooltip = copiedTooltip.cloneNode(true) as HTMLDivElement;
+      let feedback = copiedFeedback.cloneNode(true) as HTMLDivElement;
 
-      tooltip.style.display = "none";
+      feedback.style.display = "none";
 
-      button.addEventListener("click", makeCopier(block, button, tooltip));
+      button.addEventListener("click", makeCopier(block, button, feedback));
 
       div.appendChild(button);
-      div.appendChild(tooltip);
+      div.appendChild(feedback);
 
       block.style.marginTop = "0";
       block.style.paddingTop = "0";
