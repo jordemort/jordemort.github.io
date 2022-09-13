@@ -112,11 +112,10 @@ function addMagicButtons() {
       let div = document.createElement("div");
       div.classList.add("code-buttons");
 
-      let button = copyButton.cloneNode(true) as HTMLButtonElement;
       let feedback = copiedFeedback.cloneNode(true) as HTMLDivElement;
-
       feedback.style.display = "none";
 
+      let button = copyButton.cloneNode(true) as HTMLButtonElement;
       button.addEventListener("click", makeCopier(block, button, feedback));
 
       div.appendChild(button);
