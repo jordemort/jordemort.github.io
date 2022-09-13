@@ -3,8 +3,10 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import compress from "astro-compress";
 
+import { filenamesPlugin } from './src/plugins/filenames.mjs';
 import { repoDatesPlugin } from "./src/plugins/repodates.mjs";
 import { defaultLayoutPlugin } from './src/plugins/defaultlayout.mjs';
+
 import remarkGemoji from 'remark-gemoji';
 import remarkMath from 'remark-math';
 import { remarkKroki } from 'remark-kroki';
@@ -27,6 +29,7 @@ export default defineConfig({
   markdown: {
     extendDefaultPlugins: true,
     remarkPlugins: [
+      filenamesPlugin,
       repoDatesPlugin,
       defaultLayoutPlugin,
       remarkGemoji,
