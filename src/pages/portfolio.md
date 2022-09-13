@@ -7,6 +7,7 @@ description: "Things that I have done"
 
 I write articles for [Linux Weekly News](https://lwn.net):
 
+- September 13, 2022 - [LXC and LXD: a different container story](https://lwn.net/Articles/907613/)
 - August 23, 2022 - [The container orchestrator landscape](https://lwn.net/Articles/905164/)
 - July 26, 2022 - [Docker and the OCI container ecosystem](https://lwn.net/Articles/902049/)
 - July 5, 2022 - [An Ubuntu kernel bug causes container crashes](https://lwn.net/Articles/899420/)
