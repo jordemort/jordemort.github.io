@@ -2,6 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import MagicButtons from "../components/MagicButtons.astro";
 
 export interface Props {
   content: {
@@ -46,5 +47,6 @@ if (isFeed) {
     <main>
       <slot />
     </main>
+    <MagicButtons />
   </body>
 </html>
