@@ -164,6 +164,9 @@ code {
   color: rgba(115,138,148,.4)
 }
 
+.mainnav a {
+	margin-right: 10px;
+}
 
 @media (prefers-color-scheme: dark) {
 	body {
