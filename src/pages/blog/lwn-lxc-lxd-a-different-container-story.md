@@ -1,5 +1,5 @@
 ---
-title: "LXC & LXD: a different container story — new article @ LWN"
+title: "LXC & LXD: a different container story"
 description: I wrote about something other than this website
 tags:
   - lwn
