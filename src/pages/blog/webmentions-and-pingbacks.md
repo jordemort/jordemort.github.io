@@ -51,7 +51,7 @@ I wasn't even sure I wanted a blog; I'm still pretty sure I don't want a comment
 ## Sending
 
 [Pushl](https://github.com/PlaidWeb/Pushl) handles outgoing webmentions and pings to [Google's PubSubHubbub hub](https://pubsubhubbub.appspot.com/) whenever I publish a new post.
-WebSub (which is the new, less silly name for PubSubHubbub) is a protocol that people can use to receive real-time updates to RSS feeds.
+[WebSub](https://www.w3.org/TR/websub/) (which is the new, less silly name for PubSubHubbub) is a protocol that people can use to receive real-time updates to RSS feeds.
 I picked Google's hub in the hope that it is more likely that more people or at least Googlebot will be able to find my stuff there.
 
 Pushl is cool because it just takes the site's RSS feed as its input and uses a cache to keep track of links that it's seen before.
