@@ -68,7 +68,7 @@ Instead, I decided to run Pushl on my server.
 I could have easily set up a cron job to run it every 10 minutes or so, and that definitely would have been Good Enough.
 I wanted things to go out instantly, though, so I set up an instance of [webhookd](https://github.com/ncarlier/webhookd) on my server as well.
 
-First, I created an `.htpasswd` file to keep just anybody from calling my scripts:
+First, I created an `.htpasswd` file to keep just anybody from calling my scripts; webhookd will look for a `.htpasswd` in the current working directory, so run this in the same place you intend to run webhookd from:
 
 ```
 $ htpasswd -B -c .htpasswd api
@@ -79,7 +79,7 @@ Adding password for user api
 
 I then added the username and password I created to my repository's [secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets).
 
-After that, I wrote a small shell script to run Pushl:
+After that, I wrote a small shell script to run Pushl; webhookd looks for scripts in a directory called `scripts` in the current working directory, so this goes in `scripts/pushl.sh`:
 
 ```bash
 #!/usr/bin/env bash
@@ -95,7 +95,10 @@ exec pushl -v \
 
 (Note the `--wayback-machine`; Pushl can ask for your content to be added to the [Internet Archive](https://archive.org/) as well!)
 
-...and finally, I added stanza to the [action that builds this site](https://github.com/jordemort/jordemort.github.io/blob/main/.github/workflows/deploy.yml):
+The URL for the webhook will be the name of the script, with `.sh` stripped off.
+I'm running webhookd at `hook.jordemort.dev`, so the URL for this hook ends up being `hook.jordemort.dev/pushl`.
+
+Finally, I added stanza to the [action that builds this site](https://github.com/jordemort/jordemort.github.io/blob/main/.github/workflows/deploy.yml):
 
 ```yaml
   notify:
