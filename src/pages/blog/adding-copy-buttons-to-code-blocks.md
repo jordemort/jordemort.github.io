@@ -19,7 +19,8 @@ Let's see if anyone else has done this.
 Aha, it looks like [Rob O'Leary](https://www.roboleary.net/2022/01/13/copy-code-to-clipboard-blog.html) has!
 This implementation will be based on his, but of course I'm going to hack it up a ton, and stuff it all into an [Astro](https://astro.build/) component.
 
-First, let's look at a bit of Rob's implementation:
+First, let's look at a bit of Rob's implementation.
+When the page is loaded, it looks for all the code blocks in the document, and adds a button to each one:
 
 ```javascript
 blocks.forEach((block) => {
@@ -53,9 +54,11 @@ const copyButton = (document.getElementById("copyButtonTemplate") as HTMLTemplat
 ...and then I can change things to use the template instead:
 
 ```typescript
+  ...
   // let button = document.createElement("button");
   // button.innerText = copyButtonLabel;
   let button = copyButton.cloneNode(true) as HTMLButtonElement;
+  ...
 ```
 
 I think it's a possibility that I'm going to want to have multiple buttons, so I'm going to wrap them in a `<div>`.
@@ -63,6 +66,7 @@ The `<div>` isn't going to need anything but a class name, so I'm fine with just
 That looks something like this:
 
 ```typescript
+  ...
   let div = document.createElement("div");
   div.classList.add("code-buttons");
 
@@ -71,6 +75,7 @@ That looks something like this:
 
   div.appendChild(button);
   block.appendChild(div);
+  ...
 ```
 
 Now I can add styles for my `<div>` to my component.
@@ -108,16 +113,20 @@ Then I set the background color to match the color of my code blocks.
 Finally, I need to modify my script to inject the `<div>` before the code block, instead of inside of it:
 
 ```typescript
+  ...
   // block.appendChild(div);
   block.parentNode!.insertBefore(div, block);
+  ...
 ```
 
 I don't want any seams between my button `<div>` and the code block, so I'm going to strip any padding or margin off the top of the code block before I add the buttons.
 
 ```typescript
+  ...
   block.style.marginTop = "0";
   block.style.paddingTop = "0";
   block.parentNode!.insertBefore(div, block);
+  ...
 ```
 
 
@@ -165,8 +174,10 @@ function makeCopier(block: HTMLElement) {
 ...and then switch over to that:
 
 ```typescript
+  ...
   // button.addEventListener("click", copyCode);
   button.addEventListener("click", makeCopier(block));
+  ...
 ```
 
 A new copy of the `copier` function is now created for each button, with `code` already bound to the element we're interested in.
@@ -267,8 +278,10 @@ function makeCopier(block: HTMLElement, button: HTMLButtonElement) {
 Since we've added the `button` as a parameter to `makeCopier`, we also need to change our call to pass it in:
 
 ```typescript
+  ...
   //button.addEventListener("click", makeCopier(block));
   button.addEventListener("click", makeCopier(block, button));
+  ...
 ```
 
 When the button is clicked, the function will add the `clicked` class to it.
@@ -330,15 +343,16 @@ I don't want it to display unless the button is clicked, so I'm going to give it
 The `copier` function is going to need to act on the feedback `<div>`, so it needs to be added as a parameter to `makeCopier` as well:
 
 ```typescript
-  let button = copyButton.cloneNode(true) as HTMLButtonElement;
+  ...
   let feedback = copiedFeedback.cloneNode(true) as HTMLDivElement;
-
   feedback.style.display = "none";
 
+  let button = copyButton.cloneNode(true) as HTMLButtonElement;
   button.addEventListener("click", makeCopier(block, button, feedback));
 
   div.appendChild(button);
   div.appendChild(feedback);
+  ...
 ```
 
 I can now extend the `copier` function to show and hide the feedback `<div>` when the button is clicked.
