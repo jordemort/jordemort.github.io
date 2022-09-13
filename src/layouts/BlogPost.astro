@@ -25,24 +25,57 @@ function formatDate(dateString: string): string {
 }
 
 const {
-	content: {
-		title,
-		description,
-		pubDate,
-		updatedDate,
-		heroImage,
-		source
-	},
+	content: { title, description, pubDate, updatedDate, heroImage, source },
 } = Astro.props;
 
 const skeletonContent = {
 	title: title,
 	description: description,
 	image: heroImage,
-	isBlogPost: true
-}
+	isBlogPost: true,
+};
 
-let history = source ? `https://github.com/jordemort/jordemort.github.io/commits/main/${source}` : null
+const posts = (await Astro.glob("../pages/blog/*.{md,mdx}"))
+	.sort(
+		(a, b) =>
+			new Date(b.frontmatter.pubDate).valueOf() -
+			new Date(a.frontmatter.pubDate).valueOf()
+	)
+	.filter((post) => !post.frontmatter.unlisted);
+
+var history;
+var previous;
+var next;
+
+if (source) {
+	history = `https://github.com/jordemort/jordemort.github.io/commits/main/${source}`;
+
+	let found = false;
+	let i = 0;
+
+	for (i = 0; i < posts.length; i++) {
+		if (posts[i].frontmatter.source === source) {
+			found = true;
+			break;
+		}
+	}
+
+	if (found) {
+		if (i > 0) {
+			next = {
+				title: posts[i - 1].frontmatter.title,
+				url: posts[i - 1].url + "/",
+			};
+		}
+
+		if (i < posts.length - 1) {
+			previous = {
+				title: posts[i + 1].frontmatter.title,
+				url: posts[i + 1].url + "/",
+			};
+		}
+	}
+}
 ---
 
 <Skeleton content={skeletonContent}>
@@ -64,12 +97,37 @@ let history = source ? `https://github.com/jordemort/jordemort.github.io/commits
 		.e-content {
 			padding-top: 1rem;
 		}
+
+		.timeline {
+			width: 100%;
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+			font-size: smaller;
+			font-weight: bold;
+			clear: both;
+		}
+
+		@media only screen and (min-width: 800px) {
+			.previous-post {
+				float: left;
+			}
+
+			.next-post {
+				float: right;
+			}
+		}
 	</style>
 	<article>
 		<header>
 			{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
 			<h1 class="title p-name" itemprop="headline">{title}</h1>
-			{description && <div class="p-summary description" itemprop="abstract">{description}</div>}
+			{
+				description && (
+					<div class="p-summary description" itemprop="abstract">
+						{description}
+					</div>
+				)
+			}
 		</header>
 		<div class="e-content" itemprop="articleBody">
 			<slot />
@@ -95,7 +153,23 @@ let history = source ? `https://github.com/jordemort/jordemort.github.io/commits
 					</div>
 				)
 			}
-			<a class="u-url" rel="canonical" href={Astro.request.url}></a>
+			{
+				(previous || next) && (
+					<nav class="timeline">
+						{previous && (
+							<div class="previous-post">
+								<a href={previous.url}>↞ {previous.title}</a>
+							</div>
+						)}
+						{next && (
+							<div class="next-post">
+								<a href={next.url}>{next.title} ↠</a>
+							</div>
+						)}
+					</nav>
+				)
+			}
+			<a class="u-url u-uid" rel="canonical" href={Astro.request.url}></a>
 		</footer>
 	</article>
 </Skeleton>
