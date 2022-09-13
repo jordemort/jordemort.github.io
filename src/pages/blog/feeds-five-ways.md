@@ -18,7 +18,7 @@ I wanted my feeds to be full-text, and I also wanted an [Atom](https://en.wikipe
 I went looking on NPM for something that could generate an Atom feed, and I found [jpmonette/feed](https://github.com/jpmonette/feed).
 Since it can also generate RSS feeds, I decided it would be best for consistency's sake to settle on a single feed generator, and ditched Astro's RSS component altogether.
 
-The code that creates the feed object lives in [`makefeed.mjs`](https://github.com/jordemort/jordemort.github.io/blob/main/src/utils/makefeed.mjs).
+The code that creates the feed object lives in [`makeFeed.mjs`](https://github.com/jordemort/jordemort.github.io/blob/main/src/utils/makeFeed.mjs).
 [`rss.xml.js`](https://github.com/jordemort/jordemort.github.io/blob/main/src/pages/rss.xml.js) and [`atom.xml.js`](https://github.com/jordemort/jordemort.github.io/blob/main/src/pages/atom.xml.js) call `makeFeed` and then generate output in the desired format.
 The library I'm using also supports [JSON Feed](https://www.jsonfeed.org/); I've never used any software that cared about this format, but since I can generate it essentially for free, I do, in [`feed.json.js`](https://github.com/jordemort/jordemort.github.io/blob/main/src/pages/feed.json.js).
 I've got links to all three of feeds embedded in my [`<head>`](https://github.com/jordemort/jordemort.github.io/blob/main/src/components/BaseHead.astro) element; there are also regular links to them at the top of the [blog index](/blog/).
