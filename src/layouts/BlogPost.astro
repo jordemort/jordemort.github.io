@@ -25,7 +25,7 @@ function formatDate(dateString: string): string {
 }
 
 const {
-	content: { title, description, pubDate, updatedDate, heroImage, source },
+	content: { title, description, pubDate, updatedDate, heroImage, source, tags },
 } = Astro.props;
 
 const skeletonContent = {
@@ -79,8 +79,10 @@ if (source) {
 ---
 
 <Skeleton content={skeletonContent}>
-	<slot name="head" slot="head" />
 	<slot name="nav" slot="nav" />
+	{tags && (
+		<meta name="keywords" content={tags.join(",")} slot="head" />
+	)}
 	<style>
 		.postdate {
 			font-size: smaller;
