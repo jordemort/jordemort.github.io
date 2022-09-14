@@ -43,6 +43,7 @@ export function makeFeed() {
       content: post.compiledContent(),
       published: new Date(post.frontmatter.pubDate),
       date: new Date(post.frontmatter.updatedDate || post.frontmatter.pubDate),
+      category: post.frontmatter.tags ? post.frontmatter.tags.map((tag) => ({name: tag, term: tag})) : []
     });
   }
 
