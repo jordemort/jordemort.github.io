@@ -3,7 +3,7 @@ title: Remark (and Rehype) all the things
 description: Give me all your plugins
 tags:
   - astro
-  - meta
+  - jordemort.dev
   - remark
   - rehype
   - diagrams

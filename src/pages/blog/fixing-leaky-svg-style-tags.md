@@ -2,7 +2,7 @@
 title: Fixing leaky SVG style tags
 description: Stay in your lane, Bob
 tags:
-  - meta
+  - jordemort.dev
   - remark
   - rehype
   - diagrams

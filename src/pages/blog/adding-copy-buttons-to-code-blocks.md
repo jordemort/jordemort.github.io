@@ -2,7 +2,7 @@
 title: "Adding copy buttons to code blocks"
 description: Client-side JavasScript? On this site? It's more likely than you think!
 tags:
-  - meta
+  - jordemort.dev
   - astro
   - css
   - javascript

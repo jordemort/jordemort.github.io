@@ -6,7 +6,7 @@ tags:
   - rss
   - atom
   - feed
-  - meta
+  - jordemort.dev
   - microformats
   - microdata
 ---

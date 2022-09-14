@@ -4,7 +4,7 @@ description: In which I cater to my own laziness
 tags:
   - astro
   - git
-  - meta
+  - jordemort.dev
 ---
 
 For this site, I started with [Astro](https://astro.build/)'s example [blog template](https://github.com/withastro/astro/tree/main/examples/blog).

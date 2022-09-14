@@ -2,7 +2,7 @@
 title: Webmentions, pingbacks, and more
 description: Making some noise
 tags:
-  - meta
+  - jordemort.dev
   - webmention
   - pingback
   - microformats

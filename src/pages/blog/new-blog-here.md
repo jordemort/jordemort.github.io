@@ -3,7 +3,7 @@ title: "New blog here"
 description: "First post! Will it be the last?"
 tags:
   - astro
-  - meta
+  - jordemort.dev
 ---
 
 Hi, welcome to my new site.
