@@ -2,10 +2,10 @@ import { Feed } from "feed";
 
 export function makeFeed() {
   let posts = Object.values(
-		import.meta.globEager('/src/pages/blog/**/*.md')
-	).sort((a, b) =>
-		new Date(b.frontmatter.pubDate).valueOf() -	new Date(a.frontmatter.pubDate).valueOf()
-	).filter((post) => !post.frontmatter.unlisted);
+    import.meta.globEager('/src/pages/blog/**/*.md')
+  ).sort((a, b) =>
+    new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+  ).filter((post) => !post.frontmatter.unlisted);
 
   if (posts.length > 10) {
     posts.length = 10;
@@ -34,6 +34,9 @@ export function makeFeed() {
 
   for (const post of posts) {
     let url = new URL(post.url + "/", import.meta.env.SITE).href;
+    let categories = post.frontmatter.tags ? post.frontmatter.tags.map((tag) => ({ name: tag, term: tag })) : [];
+
+    categories.sort();
 
     feed.addItem({
       title: post.frontmatter.title,
@@ -43,7 +46,7 @@ export function makeFeed() {
       content: post.compiledContent(),
       published: new Date(post.frontmatter.pubDate),
       date: new Date(post.frontmatter.updatedDate || post.frontmatter.pubDate),
-      category: post.frontmatter.tags ? post.frontmatter.tags.map((tag) => ({name: tag, term: tag})) : []
+      category: categories
     });
   }
 
