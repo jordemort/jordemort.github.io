@@ -1,0 +1,49 @@
+---
+import Skeleton from "../../layouts/Skeleton.astro";
+import PostList from "../../components/PostList.astro";
+
+const { tag } = Astro.params;
+
+export async function getStaticPaths() {
+  const posts = (await Astro.glob("../blog/*.{md,mdx}")).filter(
+    (post) => !post.frontmatter.unlisted
+  );
+
+  let tags: string[] = [];
+
+  posts.forEach((post) => {
+    if (post.frontmatter.tags) {
+      (post.frontmatter.tags as string[]).forEach((tag) => {
+        if (!tags.includes(tag)) {
+          tags.push(tag);
+        }
+      });
+    }
+  });
+
+  return tags.map((tag) => ({ params: { tag } }));
+}
+
+const tagposts = (await Astro.glob("../blog/*.{md,mdx}"))
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.pubDate).valueOf() -
+      new Date(a.frontmatter.pubDate).valueOf()
+  )
+  .filter(
+    (post) =>
+      post.frontmatter.tags &&
+      post.frontmatter.tags.includes(tag) &&
+      !post.frontmatter.unlisted
+  );
+
+const skeletonContent = {
+  title: `Tag: ${tag}`,
+  description: `Posts tagged with "${tag}"`,
+};
+---
+
+<Skeleton content={skeletonContent}>
+  <h1>Posts tagged with &quot;{tag}&quot;</h1>
+  <PostList posts={tagposts} />
+</Skeleton>

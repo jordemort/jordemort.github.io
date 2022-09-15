@@ -1,0 +1,87 @@
+---
+import Tag from './Tag.astro';
+
+export interface Props {
+  posts: Record<string, any>[]
+}
+
+const { posts } = Astro.props;
+---
+<style>
+  .posts {
+    table-layout: fixed;
+    border: none;
+  }
+
+  .posts tr {
+    border: none;
+  }
+
+  .posts td {
+    border: none;
+    padding-bottom: 2em;
+
+  }
+
+  .postDate {
+    width: 8rem;
+    white-space: nowrap;
+    font-weight: bold;
+    vertical-align: top;
+  }
+
+  .description {
+    font-style: italic;
+  }
+
+  .p-name {
+    font-size: larger;
+  }
+</style>
+<table class="posts">
+  {
+    posts.map((post) => (
+      <tr
+        class="h-entry"
+        itemprop="blogPost"
+        itemscope
+        itemtype="https://schema.org/BlogPosting"
+      >
+        <td class="postDate">
+          <time
+            class="dt-published"
+            itemprop="datePublished"
+            datetime={post.frontmatter.pubDate}
+          >
+            {new Date(post.frontmatter.pubDate).toLocaleDateString("en-us", {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            })}
+          </time>
+        </td>
+        <td class="postInfo">
+          <a
+            class="u-url u-uid"
+            href={post.url + "/"}
+            itemprop="url"
+          >
+            <span class="p-name" itemprop="name headline">{post.frontmatter.title}</span>
+          </a>
+          {post.frontmatter.description &&
+            <br />
+            <span class="description p-summary" itemprop="abstract">{post.frontmatter.description}</span>
+          }
+          {post.frontmatter.tags &&
+            <br />
+          }
+          {(post.frontmatter.tags as string[]).sort().map((tag) => (
+            <Fragment>
+              <Tag tag={tag} />{" "}
+            </Fragment>
+          ))}
+        </td>
+      </tr>
+    ))
+  }
+</table>

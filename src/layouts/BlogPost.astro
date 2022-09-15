@@ -1,5 +1,6 @@
 ---
 import Skeleton from "./Skeleton.astro";
+import Tag from "../components/Tag.astro";
 
 export interface Props {
 	content: {
@@ -27,6 +28,10 @@ function formatDate(dateString: string): string {
 const {
 	content: { title, description, pubDate, updatedDate, heroImage, source, tags },
 } = Astro.props;
+
+if (tags) {
+	tags.sort();
+}
 
 const skeletonContent = {
 	title: title,
@@ -91,7 +96,6 @@ if (source) {
 		}
 
 		.description {
-			font-size: smaller;
 			font-weight: 300;
 			font-style: italic;
 		}
@@ -107,6 +111,14 @@ if (source) {
 			font-size: smaller;
 			font-weight: bold;
 			clear: both;
+		}
+
+		.tag-list {
+			padding-top: 1em;
+			text-align: center;
+			max-width: 80%;
+			margin-left: auto;
+			margin-right: auto;
 		}
 
 		@media only screen and (min-width: 800px) {
@@ -155,6 +167,13 @@ if (source) {
 					</div>
 				)
 			}
+			{tags && (
+				<div class="tag-list">
+				{ tags.map((tag) => (
+					<Fragment><Tag tag={tag} />{" "}</Fragment>
+				))}
+				</div>
+			)}
 			{
 				(previous || next) && (
 					<nav class="timeline">

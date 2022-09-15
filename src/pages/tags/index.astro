@@ -1,0 +1,43 @@
+---
+import Skeleton from "../../layouts/Skeleton.astro";
+
+// Use Astro.glob() to fetch all posts, and then sort them by date.
+const posts = (await Astro.glob("../blog/*.{md,mdx}")).filter(
+  (post) => !post.frontmatter.unlisted
+);
+
+let counts: { [name: string]: number } = {};
+
+posts.forEach((post) => {
+  if (post.frontmatter.tags) {
+    (post.frontmatter.tags as string[]).forEach((tag) => {
+      if (counts[tag]) {
+        counts[tag] += 1;
+      } else {
+        counts[tag] = 1;
+      }
+    });
+  }
+});
+
+let tags = Object.keys(counts);
+
+tags.sort();
+
+const skeletonContent = {
+	title: "Tag index for Jordan Webb's blog",
+	description: "Every tag I've used so far",
+};
+
+---
+
+<Skeleton content={skeletonContent}>
+  <h1>Tag index</h1>
+  <ul>
+    {
+      tags.map((tag) => (
+        <li><a href={`/tags/${tag}/`}>{tag}</a> ({counts[tag]})</li>
+      ))
+    }
+  </ul>
+</Skeleton>
