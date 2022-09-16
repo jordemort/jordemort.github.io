@@ -107,11 +107,6 @@ main {
 	padding-top: 0.5rem;
 }
 
-main>:first-child {
-	margin-top: 0;
-	/* padding-top: 0; */
-}
-
 footer {
 	padding-top: 1rem;
 	text-align: center;
