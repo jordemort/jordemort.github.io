@@ -12,6 +12,7 @@ export interface Props {
 		heroImage?: string;
 		source?: string;
 		tags?: string[];
+		unlisted?: boolean
 	};
 }
 
@@ -27,7 +28,7 @@ function formatDate(dateString: string): string {
 }
 
 const {
-	content: { title, description, pubDate, updatedDate, heroImage, source, tags },
+	content: { title, description, pubDate, updatedDate, heroImage, source, tags, unlisted },
 } = Astro.props;
 
 if (tags) {
@@ -186,6 +187,9 @@ if (source) {
 				)
 			}
 			<a class="u-url u-uid" rel="canonical" href={Astro.request.url}></a>
+			{unlisted &&
+				<span class="p-category" style="display: none">unlisted</span>
+			}
 		</footer>
 	</article>
 </Skeleton>
