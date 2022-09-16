@@ -1,10 +1,8 @@
 ---
 import Skeleton from "../../layouts/Skeleton.astro";
+import { getPosts } from "../../utils/getPosts";
 
-// Use Astro.glob() to fetch all posts, and then sort them by date.
-const posts = (await Astro.glob("../blog/*.{md,mdx}")).filter(
-  (post) => !post.frontmatter.unlisted
-);
+const posts = getPosts();
 
 let counts: { [name: string]: number } = {};
 

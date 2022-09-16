@@ -6,7 +6,7 @@ export interface Props {
 const { tag } = Astro.props;
 ---
 <style>
-  .tag {
+  .p-tag {
     font-size: smaller;
     padding-left: 0.5em;
     padding-right: 0.5em;
@@ -16,10 +16,10 @@ const { tag } = Astro.props;
   }
 
   @media (prefers-color-scheme: dark) {
-    .tag {
+    .p-tag {
       color: #000;
       background-color: #9e98f2;
     }
   }
 </style>
-<a class="tag" href={`/tags/${tag}/`}>{tag}</a>
+<a class="p-tag" href={`/tags/${tag}/`}><span itemprop="keywords">{tag}</span></a>

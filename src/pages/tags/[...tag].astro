@@ -1,13 +1,10 @@
 ---
 import Skeleton from "../../layouts/Skeleton.astro";
 import PostList from "../../components/PostList.astro";
-
-const { tag } = Astro.params;
+import { getPosts } from "../../utils/getPosts";
 
 export async function getStaticPaths() {
-  const posts = (await Astro.glob("../blog/*.{md,mdx}")).filter(
-    (post) => !post.frontmatter.unlisted
-  );
+  const posts = getPosts();
 
   let tags: string[] = [];
 
@@ -24,17 +21,12 @@ export async function getStaticPaths() {
   return tags.map((tag) => ({ params: { tag } }));
 }
 
-const tagposts = (await Astro.glob("../blog/*.{md,mdx}"))
-  .sort(
-    (a, b) =>
-      new Date(b.frontmatter.pubDate).valueOf() -
-      new Date(a.frontmatter.pubDate).valueOf()
-  )
-  .filter(
+const { tag } = Astro.params;
+
+const tagposts = getPosts().filter(
     (post) =>
       post.frontmatter.tags &&
-      post.frontmatter.tags.includes(tag) &&
-      !post.frontmatter.unlisted
+      post.frontmatter.tags.includes(String(tag))
   );
 
 const skeletonContent = {

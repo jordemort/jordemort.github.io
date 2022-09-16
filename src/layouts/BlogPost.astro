@@ -1,6 +1,7 @@
 ---
 import Skeleton from "./Skeleton.astro";
 import Tag from "../components/Tag.astro";
+import { getPosts } from "../utils/getPosts";
 
 export interface Props {
 	content: {
@@ -40,13 +41,7 @@ const skeletonContent = {
 	isBlogPost: true,
 };
 
-const posts = (await Astro.glob("../pages/blog/*.{md,mdx}"))
-	.sort(
-		(a, b) =>
-			new Date(b.frontmatter.pubDate).valueOf() -
-			new Date(a.frontmatter.pubDate).valueOf()
-	)
-	.filter((post) => !post.frontmatter.unlisted);
+const posts = getPosts();
 
 var history;
 var previous;
@@ -179,12 +174,12 @@ if (source) {
 					<nav class="timeline">
 						{previous && (
 							<div class="previous-post">
-								<a href={previous.url}>↞ {previous.title}</a>
+								<a href={previous.url} rel="prev">↞ {previous.title}</a>
 							</div>
 						)}
 						{next && (
 							<div class="next-post">
-								<a href={next.url}>{next.title} ↠</a>
+								<a href={next.url} rel="next">{next.title} ↠</a>
 							</div>
 						)}
 					</nav>

@@ -1,11 +1,8 @@
 import { Feed } from "feed";
+import { getPosts } from "./getPosts";
 
 export function makeFeed() {
-  let posts = Object.values(
-    import.meta.globEager('/src/pages/blog/**/*.md')
-  ).sort((a, b) =>
-    new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
-  ).filter((post) => !post.frontmatter.unlisted);
+  let posts = getPosts();
 
   if (posts.length > 10) {
     posts.length = 10;

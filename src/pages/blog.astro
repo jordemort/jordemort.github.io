@@ -3,13 +3,9 @@ import HeaderLink from "../components/HeaderLink.astro";
 import Skeleton from "../layouts/Skeleton.astro";
 import PostList from "../components/PostList.astro";
 
-// Use Astro.glob() to fetch all posts, and then sort them by date.
-const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
-	(a, b) =>
-		new Date(b.frontmatter.pubDate).valueOf() -
-		new Date(a.frontmatter.pubDate).valueOf()
-).filter((post) => !post.frontmatter.unlisted);
+import { getPosts } from "../utils/getPosts";
 
+const posts = getPosts();
 const skeletonContent = {
 	title: "Jordan Webb's blog",
 	description: "Development notes and technical musings",
