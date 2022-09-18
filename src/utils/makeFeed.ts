@@ -49,3 +49,11 @@ export function makeFeed() {
 
   return feed;
 }
+
+export function injectXSL(xml: string, xsl: string) {
+  let i = xml.indexOf('?>');
+  let before = xml.slice(0, i + 2);
+  let after = xml.slice(i + 2);
+
+  return before + `<?xml-stylesheet href="${xsl}" type="text/xsl"?>` + after;
+}
