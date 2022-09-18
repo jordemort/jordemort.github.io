@@ -1,5 +1,5 @@
 {
-  "name": "@example/blog",
+  "name": "@jordemort/blog",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "serve": "podman run --rm -ti -v $(pwd)/dist/:/usr/share/nginx/html -p 33000:80 nginx:latest"
   },
   "devDependencies": {
     "@astrojs/mdx": "^0.11.1",
@@ -17,9 +18,12 @@
     "feed": "^4.2.2"
   },
   "dependencies": {
+    "@astrojs/vue": "^1.0.2",
     "@fontsource/source-code-pro": "^4.5.12",
     "@fontsource/source-sans-pro": "^4.5.11",
+    "@types/sql.js": "^1.4.3",
     "css": "^3.0.0",
+    "microformats-parser": "^1.4.1",
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-katex": "^6.0.2",
     "rehype-raw": "^6.1.1",
@@ -27,6 +31,9 @@
     "remark-gemoji": "^7.0.1",
     "remark-kroki": "github:jordemort/remark-kroki",
     "remark-math": "^5.1.1",
-    "remark-plugin-oembed": "^0.1.0"
+    "remark-plugin-oembed": "^0.1.0",
+    "sql.js": "^1.8.0",
+    "sql.js-httpvfs": "^0.8.11",
+    "vue": "^3.2.39"
   }
 }

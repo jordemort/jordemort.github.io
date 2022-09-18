@@ -1,5 +1,21 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
+
+/*
+	<HeaderLink
+			id="searchLink"
+			href="#search"
+			style="display: none"
+			{...{"@click": `
+				showSearch = true;
+				console.log('refs = %s', JSON.stringify($refs));
+				await $nextTick();
+				console.log("%s", $refs.query);
+				let searchQuery = document.getElementById('searchQuery');
+				console.log(searchQuery);
+				searchQuery.focus();
+			`}}>Search</HeaderLink
+*/
 ---
 
 <style>
@@ -41,8 +57,15 @@ import HeaderLink from "./HeaderLink.astro";
 			rel="me"
 			target="_blank">LinkedIn</HeaderLink
 		>
-		<HeaderLink href="https://github.com/jordemort" rel="me authn" target="_blank"
-			>GitHub</HeaderLink
+		<HeaderLink
+			href="https://github.com/jordemort"
+			rel="me authn"
+			target="_blank">GitHub</HeaderLink
+		>
+		<HeaderLink
+			id="searchLink"
+			href="#search"
+			style="display: none">Search</HeaderLink
 		>
 		<slot name="nav" />
 	</nav>

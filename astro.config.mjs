@@ -2,6 +2,8 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import compress from "astro-compress";
+import vue from "@astrojs/vue";
+import search from "./src/search/astro";
 
 import { filenamesPlugin } from './src/plugins/filenames.mjs';
 import { repoDatesPlugin } from "./src/plugins/repodates.mjs";
@@ -22,9 +24,11 @@ import { rewriteKroki } from './src/utils/rewriteKroki.mjs';
 export default defineConfig({
   site: 'https://jordemort.dev',
   integrations: [
+    vue(),
     mdx(),
     sitemap(),
-    compress({ html: { removeComments: true } })
+    compress({ html: { removeComments: true } }),
+    search()
   ],
   markdown: {
     extendDefaultPlugins: true,
