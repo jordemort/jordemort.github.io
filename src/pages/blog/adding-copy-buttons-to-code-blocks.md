@@ -1,6 +1,6 @@
 ---
 title: "Adding copy buttons to code blocks"
-description: Client-side JavasScript? On this site? It's more likely than you think!
+description: Client-side JavaScript? On this site? It's more likely than you think!
 tags:
   - jordemort.dev
   - astro
