@@ -29,4 +29,5 @@ I added an [XSL stylesheet](https://github.com/jordemort/jordemort.github.io/blo
 This was partially inspired by today's [Feedburner outage](https://news.ycombinator.com/item?id=32876954).
 The stylesheet transforms the feed XML into HTML that your browser can display.
 I started out using [Pretty Feed](https://github.com/genmon/aboutfeeds/blob/main/tools/pretty-feed-v3.xsl), but I felt like the amount of CSS it used was excessive, and it didn't work with my Atom feed, so I wrote my own stylesheet from scratch.
-The one I wrote works with both RSS and Atom feeds and should be pretty generic; feel free to take it and run with it if you have need of such a thing.
+I still included the explanatory text and the link to [About Feeds](https://aboutfeeds.com/) from Pretty Feed, though, so that those who are uninitiated into the world of RSS might discover its joys.
+My stylesheet works with both RSS and Atom feeds and should be pretty generic; feel free to take it and run with it if you have need of such a thing.
