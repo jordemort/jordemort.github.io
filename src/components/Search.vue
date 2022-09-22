@@ -132,7 +132,7 @@ watch(query, (_, value) => {
         </div>
         <div class="searchResult" v-for="result in results">
           <div class="resultName"><a :href="result.url" v-html="sanitizeMatch(result.name)"></a></div>
-          <div v-if="result.summary?.includes('<b>')"><em v-html="sanitizeMatch(result.summary)"></em></div>
+          <div v-if="result.summary?.includes('[MATCH]')"><em v-html="sanitizeMatch(result.summary)"></em></div>
           <div>
             <span v-for="category in result.categories?.split(' ')" v-if="result.categories?.includes('[MATCH]')">
               <span v-html="sanitizeMatch(category)" v-if="category.includes('[MATCH]')" class="p-category"></span>
