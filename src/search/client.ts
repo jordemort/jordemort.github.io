@@ -49,17 +49,11 @@ export class SearchClient {
   async search(query: string): Promise<SearchResult[]> {
     let q = await this.worker.db.exec(sqlQuery, [query]);
 
-    console.log("q.length = %d", q.length);
-
     if (q.length != 1) {
-      console.log("results.length = %d", q.length);
       return [];
     }
 
     let records = q.shift() as QueryExecResult;
-
-    console.log("records = %s", JSON.stringify(records, null, 2));
-
     let results = records.values.map((row) => (
       {
         url: row[0] as string,
@@ -69,8 +63,6 @@ export class SearchClient {
         content: row[4] as string,
       }
     ));
-
-    console.log("results = %s", JSON.stringify(results, null, 2));
 
     return results;
   }
