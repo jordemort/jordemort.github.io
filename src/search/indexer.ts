@@ -149,17 +149,16 @@ export class Indexer {
       updated = rawUpdated ? new Date(rawUpdated) : undefined;
     }
 
-    if (!content) {
-      let article = await extract(html);
-      if (article.content) {
-        content = htmlToText(article.content, htmlOptions);
-      }
-    }
-
     if (categories.includes("unlisted")) {
       console.log("Skipping unlisted %s", url);
     } else {
-      console.log([url, name, categories, summary, content, published, updated]);
+      if (!content) {
+        let article = await extract(html);
+        if (article.content) {
+          content = htmlToText(article.content, htmlOptions);
+        }
+      }
+
       this.insertEntry(url, name, categories, summary, content, published, updated);
       console.log("Indexed %s (%s)", url, name);
     }

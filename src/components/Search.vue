@@ -4,6 +4,7 @@ import { Ref, ref, watch } from "vue";
 import * as sqljs from 'sql.js-httpvfs';
 import { SearchClient } from "../search/client";
 import type { SearchResult } from "../search/client";
+import { escapeHTML } from "@wordpress/escape-html";
 
 const { createDbWorker } = sqljs;
 
@@ -75,6 +76,10 @@ async function closeSearch() {
   (document.getElementById("hideSearch") as HTMLDivElement).style.display = "none";
 }
 
+function sanitizeMatch(match: string) {
+  return escapeHTML(match).replaceAll("[MATCH]", "<b>").replaceAll("[/MATCH]", "</b>")
+}
+
 watch(query, (_, value) => {
   if (timeout) {
     clearTimeout(timeout);
@@ -103,16 +108,24 @@ watch(query, (_, value) => {
       </div>
       <div class="searchContents" v-if="queryError || noResults || results.length">
         <div v-if="queryError" style="color: red"><b>Error querying index:</b><br /><br />{{ queryError }}</div>
-        <div class="noResults" v-if="noResults && !queryError">No results</div>
-        <div class="searchResult" v-for="result in results">
-          <div class="resultName"><a :href="result.url" v-html="result.name"></a></div>
-          <div v-if="result.summary?.includes('<b>')"><em v-html="result.summary"></em></div>
+        <div class="noResults" v-if="noResults && !queryError">
+          <h3>No results</h3>
           <div>
-            <span v-for="category in result.categories?.split(' ')" v-if="result.categories?.includes('<b>')">
-              <span v-html="category" v-if="category.includes('<b>')" class="p-category"></span>
+            Try adding <tt>*</tt> to the end of your query.<br />
+            Refer to the
+            <a href="https://www.sqlite.org/fts3.html#full_text_index_queries" target="_blank">SQLite documentation</a>
+            for advanced query syntax.
+          </div>
+        </div>
+        <div class="searchResult" v-for="result in results">
+          <div class="resultName"><a :href="result.url" v-html="sanitizeMatch(result.name)"></a></div>
+          <div v-if="result.summary?.includes('<b>')"><em v-html="sanitizeMatch(result.summary)"></em></div>
+          <div>
+            <span v-for="category in result.categories?.split(' ')" v-if="result.categories?.includes('[MATCH]')">
+              <span v-html="sanitizeMatch(category)" v-if="category.includes('[MATCH]')" class="p-category"></span>
             </span>
           </div>
-          <div v-html="result.content"></div>
+          <div v-html="sanitizeMatch(result.content)"></div>
         </div>
       </div>
       <div class="searchTagline" v-if="results.length && !(noResults || queryError)">Search powered by jordemort.dev</div>
@@ -262,18 +275,21 @@ watch(query, (_, value) => {
 
   .noResults {
     text-align: center;
-    font-size: larger;
-    font-style: italic;
     opacity: 0.8;
     padding-top: 1em;
     padding-bottom: 1em;
+  }
+
+  .noResults h3 {
+    padding-top: 0;
+    margin-top: 0;
   }
 
   .searchTagline {
     text-align: center;
     font-size: x-small;
     background-color: #fff;
-    padding-bottom: 2px;
+    padding-bottom: 6px;
   }
 
   @media (prefers-color-scheme: dark) {
