@@ -238,7 +238,7 @@ watch(query, (_, value) => {
     padding-bottom: 8px;
     overflow-y: auto;
     min-height: 4em;
-    max-height: calc(90vh - 14em);
+    max-height: calc(90vh - 13em);
   }
 
   .searchContents div {
