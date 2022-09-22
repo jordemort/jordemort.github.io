@@ -89,11 +89,11 @@ watch(query, (_, value) => {
 </script>
 
 <template>
-  <div id="search" class="searchOverlay">
+  <div id="search" class="searchOverlay" @click.self="closeSearch()" @keydown.escape="closeSearch()">
     <div class="searchUI">
-      <div class="closeSearch" @click="closeSearch()"><button @click="closeSearch()">close ☒</button></div>
+      <div class="closeSearch" @click.self="closeSearch()"><button @click="closeSearch()">close ☒</button></div>
       <div class="searchBar">
-        <input v-model="query" id="searchInput" placeholder="Search"/>
+        <input v-model="query" id="searchInput" placeholder="Search" type="search"/>
         <label for="searchInput">Search</label>
       </div>
       <div class="progressContainer">
@@ -164,9 +164,9 @@ watch(query, (_, value) => {
   }
 
   .searchBar input {
-    width: calc(100% - 4px);
+    width: 100%;
     max-width: 100%;
-    padding-top: 20px;
+    padding-top: 24px;
     font-size: 24px;
     border: none;
     background-color: #fff;
@@ -177,6 +177,8 @@ watch(query, (_, value) => {
   .searchBar input::placeholder {
     opacity: 0;
   }
+
+  input[type=search] { -webkit-appearance: none; }
 
   .searchBar label {
     position: absolute;
@@ -198,7 +200,7 @@ watch(query, (_, value) => {
 
   .searchBar input:focus-within + label,
   .searchBar input:not(:placeholder-shown) + label {
-    transform: translateY(-30px);
+    transform: translateY(-34px);
     font-size: 14px;
   }
 

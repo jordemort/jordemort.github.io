@@ -56,21 +56,6 @@ if (isFeed) {
       const searchDiv = document.getElementById("hideSearch") as HTMLDivElement;
       const searchLink = document.getElementById("searchLink") as HTMLAnchorElement;
 
-      searchDiv.addEventListener("click", () => {
-        searchDiv.style.display = "none";
-      })
-
-      searchDiv.firstElementChild!.addEventListener("click", (e) => {
-        e.stopPropagation();
-      });
-
-      searchDiv.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          searchDiv.style.display = "none";
-          e.stopPropagation();
-        }
-      });
-
       searchLink.addEventListener("click", (e) => {
         searchDiv.style.display = "block";
         const searchInput = document.getElementById("searchInput") as HTMLInputElement;
