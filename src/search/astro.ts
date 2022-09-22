@@ -12,11 +12,19 @@ export default function search(): AstroIntegration {
       "astro:config:setup": ({ config: cfg }) => {
         config = cfg;
       },
-      "astro:build:done": ({ dir, pages }) => {
+      "astro:build:done": async ({ dir, pages }) => {
         const dist = fileURLToPath(dir);
         const indexer = new Indexer();
 
-        pages.forEach(({ pathname }) => {
+        for (const i in pages) {
+          const pathname = pages[i].pathname;
+
+          if (pathname.startsWith("tags/")) {
+            continue;
+          } else if (pathname === "blog/") {
+            continue;
+          }
+
           let url = config.site! + pathname;
           let htmlpath = dist + pathname;
 
@@ -25,8 +33,8 @@ export default function search(): AstroIntegration {
           }
 
           const html = fs.readFileSync(htmlpath).toString();
-          indexer.index(url, html);
-        });
+          await indexer.index(url, html);
+        }
 
         const index = dist + "index.sqlite3";
         const buffer = Buffer.from(indexer.finalize());

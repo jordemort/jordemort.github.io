@@ -1,6 +1,17 @@
 import initSqlJs from 'sql.js';
 import type { Database, Statement } from 'sql.js';
 import { mf2 } from "microformats-parser";
+import type { MicroformatRoot, MicroformatProperty } from 'microformats-parser/dist/types';
+import * as metascraper from "metascraper";
+import * as metascraperDescription from "metascraper-description";
+import * as metascraperTitle from "metascraper-title";
+import { extract } from "article-parser";
+import { htmlToText } from "html-to-text";
+
+const scraper = metascraper.default([
+  metascraperDescription.default(),
+  metascraperTitle.default()
+]);
 
 const sql = await initSqlJs();
 
@@ -8,7 +19,7 @@ const schema = `
   CREATE TABLE entries (
     entry_id INTEGER PRIMARY KEY,
     url TEXT NOT NULL UNIQUE,
-    published TEXT NOT NULL,
+    published TEXT NULL,
     updated TEXT NULL
   );
 
@@ -45,14 +56,23 @@ const insertCategory = `
   VALUES (?, ?);
 `;
 
+function mfProp(entry: MicroformatRoot, name: string): MicroformatProperty | undefined {
+  if (name in entry.properties && entry.properties[name].length > 0) {
+    return entry.properties[name][0];
+  }
+  return undefined;
+}
+
+const htmlOptions = {
+  selectors: [ { selector: 'a', options: { ignoreHref: true } } ]
+};
+
 export class Indexer {
   db: Database;
   dbInsertEntry: Statement;
   dbLastRowID: Statement;
   dbInsertCategory: Statement;
   dbInsertFTS: Statement;
-
-  //insert: Statement;
 
   constructor() {
     this.db = new sql.Database();
@@ -67,13 +87,12 @@ export class Indexer {
     url: string,
     name: string,
     categories: string[],
-    summary: string,
-    content: string,
-    published: Date,
+    summary?: string,
+    content?: string,
+    published?: Date,
     updated?: Date
-  )
-  {
-    const sqlPublished = published.toISOString();
+  ) {
+    const sqlPublished = published ? published.toISOString() : null;
     const sqlUpdated = updated ? updated.toISOString() : null;
 
     this.dbInsertEntry.run([url, sqlPublished, sqlUpdated]);
@@ -88,37 +107,62 @@ export class Indexer {
       throw "No row ID!";
     }
 
-    this.dbInsertFTS.run([rowID, name, categories.join(" "), summary, content]);
+    this.dbInsertFTS.run([rowID, name, categories.join(" "), summary || "", content || ""]);
 
     categories.forEach((category) => {
       this.dbInsertCategory.run([category, rowID as number]);
     });
   }
 
-  index(url: string, html: string) {
-    const parsed = mf2(html, { baseUrl: url })
-    const entries = parsed.items.filter((item) => item.type!.includes("h-entry"));
 
-    if (entries.length != 1) {
-      return;
+  async index(url: string, html: string) {
+    const scraped = await scraper({ html, url });
+
+    let name = scraped.title;
+    let summary = scraped.description;
+    let categories: string[] = [];
+
+    var content: string | undefined;
+    var published: Date | undefined;
+    var updated: Date | undefined;
+
+    const mf = mf2(html, { baseUrl: url })
+    const entries = mf.items.filter((item) => item.type!.includes("h-entry"));
+
+    if (entries.length == 1) {
+      const entry = entries[0];
+
+      name = mfProp(entry, "name") as string || name;
+      summary = mfProp(entry, "summary") as string || summary;
+
+      let rawContent = mfProp(entry, "content");
+      content = rawContent ? htmlToText((rawContent as { html: string }).html, htmlOptions) : undefined;
+
+      if ("category" in entry.properties) {
+        categories = entry.properties["category"] as string[];
+      }
+
+      let rawPublished = mfProp(entry, "published") as string;
+      published = rawPublished ? new Date(rawPublished) : undefined;
+
+      let rawUpdated = mfProp(entry, "updated") as string;
+      updated = rawUpdated ? new Date(rawUpdated) : undefined;
     }
 
-    const entry = entries.pop();
-    const categories = entry?.properties["category"] ? (entry?.properties["category"] as string[]) : [];
+    if (!content) {
+      let article = await extract(html);
+      if (article.content) {
+        content = htmlToText(article.content, htmlOptions);
+      }
+    }
 
     if (categories.includes("unlisted")) {
-      return;
+      console.log("Skipping unlisted %s", url);
+    } else {
+      console.log([url, name, categories, summary, content, published, updated]);
+      this.insertEntry(url, name, categories, summary, content, published, updated);
+      console.log("Indexed %s (%s)", url, name);
     }
-
-    const name = entry?.properties["name"].pop() as string;
-    const summary = entry?.properties["summary"].pop() as string;
-    const content = (entry?.properties["content"].pop()?.valueOf() as { value: string }).value;
-    const published = new Date(entry?.properties["published"].pop() as string);
-    const maybeUpdated = entry?.properties["updated"].pop();
-    const updated = maybeUpdated ? new Date(maybeUpdated as string) : undefined;
-
-    this.insertEntry(url, name, categories, summary, content, published, updated);
-    console.log("Indexed %s", url);
   }
 
   finalize() {
