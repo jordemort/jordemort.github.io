@@ -238,7 +238,7 @@ watch(query, (_, value) => {
     padding-bottom: 8px;
     overflow-y: auto;
     min-height: 4em;
-    max-height: calc(90vh - 12em);
+    max-height: calc(90vh - 14em);
   }
 
   .searchContents div {
@@ -273,6 +273,7 @@ watch(query, (_, value) => {
     text-align: center;
     font-size: x-small;
     background-color: #fff;
+    padding-bottom: 2px;
   }
 
   @media (prefers-color-scheme: dark) {
