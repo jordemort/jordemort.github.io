@@ -160,7 +160,7 @@ watch(query, (_, value) => {
   }
 
   .searchUI {
-    margin-top: 5em;
+    margin-top: 6em;
     margin-left: auto;
     margin-right: auto;
     max-width: 90%;
@@ -175,6 +175,7 @@ watch(query, (_, value) => {
   .closeSearch {
     width: 100%;
     text-align: right;
+    position: relative;
   }
 
   .closeSearch button {
@@ -187,6 +188,9 @@ watch(query, (_, value) => {
     text-decoration: none;
     font-size: small;
     font-variant: small-caps;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
   }
 
   .searchBar input {
