@@ -63,6 +63,7 @@ async function doQuery() {
 
   try {
     results.value = await client.search(query.value);
+    queryError.value = "";
   } catch (e) {
     queryError.value = e as string;
     results.value = [];
@@ -107,8 +108,16 @@ watch(query, (_, value) => {
         </div>
       </div>
       <div class="searchContents" v-if="queryError || noResults || results.length">
-        <div v-if="queryError" style="color: red"><b>Error querying index:</b><br /><br />{{ queryError }}</div>
-        <div class="noResults" v-if="noResults && !queryError">
+        <div class="queryError" v-if="queryError">
+          <h3>Error querying index</h3>
+          <div style="color: red">{{ queryError }}</div>
+          <div>
+            Refer to the
+            <a href="https://www.sqlite.org/fts3.html#full_text_index_queries" target="_blank">SQLite documentation</a>
+            for advanced query syntax.
+          </div>
+        </div>
+        <div class="queryError" v-if="noResults && !queryError">
           <h3>No results</h3>
           <div>
             Try adding <tt>*</tt> to the end of your query.<br />
@@ -273,14 +282,14 @@ watch(query, (_, value) => {
     font-size: larger;
   }
 
-  .noResults {
+  .queryError {
     text-align: center;
     opacity: 0.8;
     padding-top: 1em;
     padding-bottom: 1em;
   }
 
-  .noResults h3 {
+  .queryError h3 {
     padding-top: 0;
     margin-top: 0;
   }
