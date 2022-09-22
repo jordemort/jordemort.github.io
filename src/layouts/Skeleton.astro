@@ -3,7 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import MagicButtons from "../components/MagicButtons.astro";
-import Search from "../components/Search.vue";
+import Search from "../components/Search.astro";
 
 export interface Props {
   content: {
@@ -48,22 +48,7 @@ if (isFeed) {
     <main>
       <slot />
     </main>
-    <div id="hideSearch" style="display: none">
-      <Search client:visible />
-    </div>
     <MagicButtons />
-    <script>
-      const searchDiv = document.getElementById("hideSearch") as HTMLDivElement;
-      const searchLink = document.getElementById("searchLink") as HTMLAnchorElement;
-
-      searchLink.addEventListener("click", (e) => {
-        searchDiv.style.display = "block";
-        const searchInput = document.getElementById("searchInput") as HTMLInputElement;
-        setTimeout(() => { searchInput.focus(); }, 20);
-        e.preventDefault();
-      });
-
-      searchLink.style.display = "inline";
-    </script>
+    <Search />
   </body>
 </html>

@@ -1,0 +1,34 @@
+---
+import Search from "./Search.vue";
+
+const cacheBust = new Date().toISOString();
+---
+
+<div id="hideSearch" style="display: none">
+  <Search client:visible cacheBust={cacheBust} />
+</div>
+<script>
+  const searchDiv = document.getElementById("hideSearch") as HTMLDivElement;
+  const searchLink = document.getElementById("searchLink") as HTMLAnchorElement;
+
+  if (searchDiv && searchLink) {
+    searchLink.addEventListener("click", (e) => {
+      searchDiv.style.display = "block";
+      const searchInput = document.getElementById(
+        "searchInput"
+      ) as HTMLInputElement;
+      setTimeout(() => {
+        searchInput.focus();
+      }, 20);
+      e.preventDefault();
+    });
+
+    searchLink.style.display = "inline";
+  } else {
+    console.log(
+      "couldn't find search elements! searchDiv=%s searchLink=%s",
+      searchDiv,
+      searchLink
+    );
+  }
+</script>

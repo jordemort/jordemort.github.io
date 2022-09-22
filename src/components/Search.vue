@@ -1,10 +1,14 @@
 <script lang="ts" setup>
 
-import { Ref, ref, watch } from "vue";
+import { Ref, ref, watch, defineProps } from "vue";
 import * as sqljs from 'sql.js-httpvfs';
 import { SearchClient } from "../search/client";
 import type { SearchResult } from "../search/client";
 import { escapeHTML } from "@wordpress/escape-html";
+
+const props = defineProps({
+  cacheBust: String
+});
 
 const { createDbWorker } = sqljs;
 
@@ -27,7 +31,7 @@ async function getClient() {
             from: "inline",
             config: {
               serverMode: "full",
-              url: "/index.sqlite3",
+              url: `/index.sqlite3?cb=${encodeURIComponent(props.cacheBust as string)}`,
               requestChunkSize: 4096,
             },
           },
