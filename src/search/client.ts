@@ -23,10 +23,10 @@ const sqlQuery = `
   FROM (
     SELECT
       entries.url,
-      snippet(ftsentries, "[MATCH]", "[/MATCH]", "...", 0) as name,
-      snippet(ftsentries, "[MATCH]", "[/MATCH]", "...", 1) as categories,
-      snippet(ftsentries, "[MATCH]", "[/MATCH]", "...", 2) as summary,
-      snippet(ftsentries, "[MATCH]", "[/MATCH]", "...", 3) as content,
+      snippet(ftsentries, "[MATCH]", "[/MATCH]", "...", 0, -64) as name,
+      snippet(ftsentries, "[MATCH]", "[/MATCH]", "...", 1, -64) as categories,
+      snippet(ftsentries, "[MATCH]", "[/MATCH]", "...", 2, -64) as summary,
+      snippet(ftsentries, "[MATCH]", "[/MATCH]", "...", 3, -64) as content,
       entries.published AS published
     FROM ftsentries, entries
     WHERE ftsentries MATCH ? AND entries.entry_id = ftsentries.docid
