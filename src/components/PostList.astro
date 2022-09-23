@@ -78,7 +78,10 @@ const { posts } = Astro.props;
           }
           {(post.frontmatter.tags as string[]).sort().map((tag) => (
             <Fragment>
-              <Tag tag={tag} />{" "}
+              <Fragment>
+                <Tag tag={tag} />
+              </Fragment>
+              {" "}
             </Fragment>
           ))}
         </td>

@@ -27,7 +27,17 @@ export default defineConfig({
     vue(),
     mdx(),
     sitemap(),
-    compress({ html: { removeComments: true } }),
+    compress({ html: {
+      collapseWhitespace: true,
+      collapseInlineTagWhitespace: false,
+      conservativeCollapse: true,
+      minifyCSS: true,
+      minifyJS: true,
+      minifyURLs: true,
+      sortAttributes: true,
+      sortClassName: true,
+      removeComments: true
+    }}),
     search()
   ],
   markdown: {
