@@ -45,6 +45,14 @@ This is a tiny Go application that I wrote to allow controlling the light throug
 I'm fairly sure nobody else uses this; sometimes I think I might even be the only person who owns this model of camera.
 It's mostly here in the portfolio to prove that I can write Go.
 
+#### [This website](https://github.com/jordemort/jordemort.github.io/)
+
+My main motivation for building this website is to market my services, but I also wanted to get out of my backend comfort zone and learn a bit more about TypeScript and modern frontend things.
+It has been an enjoyable change of pace.
+I'm tagging posts about the site's development with <a class="p-category" href="/tags/jordemort.dev/">jordemort.dev</a>, if you're interested in how it's made.
+I am particularly pleased with the [client-side search](/blog/client-side-search/) I implemented.
+
+
 ### Contributions
 
 A selection of my contributions to open source projects:

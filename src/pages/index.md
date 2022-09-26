@@ -19,4 +19,4 @@ When I'm building a distribution that's that's not a Debian derivative, I use Yo
 I am available for contract work.
 I can help you build your backend, set up your CI, package and publish your software, or even build another custom Linux distribution for you.
 I only work remotely.
-You can find my email address on my [GitHub profile](https://github.com/jordemort), or fill out the [contact form](https://caketop.app/#contact) on the Caketop website.
+You can reach me via email at [jordan@jordemort.dev](mailto:jordan@jordemort.dev), or fill out the [contact form](https://caketop.app/#contact) on the Caketop website.
