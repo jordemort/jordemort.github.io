@@ -23,7 +23,7 @@
     "@fontsource/source-sans-pro": "^4.5.11",
     "@types/html-to-text": "^8.1.1",
     "@types/metascraper": "^5.14.1",
-    "@types/sql.js": "^1.4.3",
+    "@types/sql.js": "^1.4.4",
     "@wordpress/escape-html": "^2.18.0",
     "article-parser": "^7.2.1",
     "canvas": "^2.10.1",
