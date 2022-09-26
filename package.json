@@ -31,7 +31,7 @@
     "html-to-text": "^8.2.1",
     "jsdom": "^20.0.0",
     "metascraper": "^5.30.4",
-    "metascraper-description": "^5.30.4",
+    "metascraper-description": "^5.31.1",
     "metascraper-title": "^5.31.1",
     "microformats-parser": "^1.4.1",
     "rehype-accessible-emojis": "^0.3.2",
