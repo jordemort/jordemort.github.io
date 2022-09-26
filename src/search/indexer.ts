@@ -164,7 +164,7 @@ export class Indexer {
     }
   }
 
-  finalize() {
+  finalize(): Uint8Array {
     this.db.exec("pragma journal_mode = delete;");
     this.db.exec("pragma page_size = 4096;");
     this.db.exec("insert into ftsentries(ftsentries) values ('optimize');");
