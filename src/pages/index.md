@@ -20,3 +20,5 @@ I am available for contract work.
 I can help you build your backend, set up your CI, package and publish your software, or even build another custom Linux distribution for you.
 I only work remotely.
 You can reach me via email at [jordan@jordemort.dev](mailto:jordan@jordemort.dev), or fill out the [contact form](https://caketop.app/#contact) on the Caketop website.
+If you need to get in touch with me securely, you can find my GPG key [here](/gpg.txt), at [keys.openpgp.org](https://keys.openpgp.org/search?q=jordan%40jordemort.dev), or you can encrypt a message for me on [Keyoxide](https://keyoxide.org/hkp/jordan%40jordemort.dev).
+You can also [chat with me on Matrix](https://matrix.to/#/@jordan:shady.website).
