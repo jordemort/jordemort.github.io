@@ -11,7 +11,7 @@
     "serve": "podman run --rm -ti -v $(pwd)/dist/:/usr/share/nginx/html -p 33000:80 nginx:latest"
   },
   "devDependencies": {
-    "@astrojs/mdx": "^0.11.1",
+    "@astrojs/mdx": "^0.11.2",
     "@astrojs/sitemap": "^1.0.0",
     "astro": "^1.2.8",
     "astro-compress": "^1.0.8",
