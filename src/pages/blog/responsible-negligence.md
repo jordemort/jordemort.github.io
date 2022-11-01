@@ -209,6 +209,11 @@ In this case, `+10` means "in 10 minutes," which gives me a reasonable window of
 `unattended-upgrades` can automatically reboot your machine when necessary, but sometimes updates only need a few services to be restarted.
 This usually happens when a shared library that is used by several programs is updated; today's OpenSSL update is a good example.
 This can be handled by a different bit of software called [`needrestart`](https://github.com/liske/needrestart).
+You can install `needrestart` like so:
+
+```
+$ apt-get update && apt-get install needrestart
+```
 
 By default, `needrestart` will run in interactive mode when you run a manual upgrade, and ask which services you'd like to restart.
 Busy dads don't have time for questions from computers with obvious answers, though, so I've reconfigured `needrestart` to just automatically restart anything it thinks needs restarting.
@@ -248,7 +253,6 @@ $nrconf{restart} = 'a';
 Instead, when you need to update the software inside of a container, the better way to do it is to build a new container image containing the updated software and replace your running container.
 
 [Watchtower](https://github.com/containrrr/watchtower) is a very helpful bit of software that can automatically update and restart containers when new images are available.
-
 Like most of my self-hosted services, I run Watchtower with [Docker Compose](https://github.com/docker/compose).
 Here's my Compose file for Watchtower:
 
