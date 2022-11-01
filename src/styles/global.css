@@ -176,6 +176,17 @@ code {
 	color: #fff;
 }
 
+article p {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+article p > img {
+	display: block;
+	margin: 0 auto;
+}
+
 @media (prefers-color-scheme: dark) {
 	body {
 		background-color: #111;
