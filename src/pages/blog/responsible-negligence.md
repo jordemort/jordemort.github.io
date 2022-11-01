@@ -23,7 +23,7 @@ I run almost all of my services in [Docker](https://www.docker.com/) containers:
 32
 ❯ ssh citadel docker ps | wc -l
 34
-❯ ssh citadel docker ps | wc -l
+❯ ssh wolfgang docker ps | wc -l
 8
 ```
 
