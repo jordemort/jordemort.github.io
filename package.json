@@ -14,7 +14,7 @@
     "@astrojs/mdx": "^0.11.5",
     "@astrojs/sitemap": "^1.0.0",
     "astro": "^1.6.2",
-    "astro-compress": "^1.0.12",
+    "astro-compress": "^1.1.1",
     "feed": "^4.2.2"
   },
   "dependencies": {
