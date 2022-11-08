@@ -24,7 +24,7 @@
     "@types/html-to-text": "^8.1.1",
     "@types/metascraper": "^5.14.1",
     "@types/sql.js": "^1.4.4",
-    "@wordpress/escape-html": "^2.20.0",
+    "@wordpress/escape-html": "^2.21.0",
     "article-parser": "^7.2.4",
     "canvas": "^2.10.1",
     "css": "^3.0.0",
