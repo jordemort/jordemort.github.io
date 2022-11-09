@@ -514,7 +514,6 @@ services:
       - --rule.ttrss-public.rule=Host(`reader.example.com`) && Path(`/public.php`)
       - --rule.ttrss-api.action=allow
       - --rule.ttrss-api.rule=Host(`reader.example.com`) && PathPrefix(`/api/`)
-      - --rule.local.action=allow
     ...
 ```
 
