@@ -520,8 +520,10 @@ services:
 Bring `traefik-forward-auth` down, bring it back up, and now requests to `reader.example.com/api/` and `reader.example.com/public.php` should bypass authentication.
 
 **NOTE:** This still doesn't make the API aware of the OAuth2 authentication scheme.
-If you want to use a mobile app with Tiny Tiny RSS, you're going to have to create an "app password" in its preferences to use with the mobile app.
-Your Mastodon password won't work.
+If you want to use a mobile app with Tiny Tiny RSS, your Mastodon password won't work.
+You're going to have to create an "app password" in its preferences to use a mobile app:
+
+![Tiny Tiny RSS: App passwords](/images/single-sign-on-with-mastodon/ttrss-app-passwords.png "Tiny Tiny RSS: App passwords")
 
 ## Setting up RSS Bridge
 
