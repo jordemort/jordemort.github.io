@@ -187,6 +187,20 @@ article p > img {
 	margin: 0 auto;
 }
 
+article table {
+	border-collapse: collapse;
+}
+
+article table th, article table td {
+	border-bottom: 1px dotted #b6b8d6;
+}
+
+article table td {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+
 @media (prefers-color-scheme: dark) {
 	body {
 		background-color: #111;
