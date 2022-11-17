@@ -44,6 +44,6 @@
     "remark-plugin-oembed": "^0.1.0",
     "sql.js": "^1.8.0",
     "sql.js-httpvfs": "^0.8.12",
-    "vue": "^3.2.44"
+    "vue": "^3.2.45"
   }
 }
