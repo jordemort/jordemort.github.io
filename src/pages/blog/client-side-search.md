@@ -34,7 +34,7 @@ This means that it can be used to query a database stored on a web server.
 What's more, this VFS layer uses [byte range requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests); this is a special kind of HTTP request that only retrieves a specific segment of a file.
 This allows SQLite running in your browser to interact with a database stored on a web server in a way similarly to how it would interact with a database on your computer; instead of having to download the entire database, it only downloads the chunks of it that it needs.
 
-This property is what initially attracted m[e to <em>sql.js-httpvfs</em>; alternatives like [Lunr](https://lunrjs.com/) and [Lyra](https://lyrajs.io/) appear to rely on downloading an index of the entire site up-front.
+This property is what initially attracted me to <em>sql.js-httpvfs</em>; alternatives like [Lunr](https://lunrjs.com/) and [Lyra](https://lyrajs.io/) appear to rely on downloading an index of the entire site up-front.
 The joke may be on me in this regard, though, unless I generate a whole lot more content; running SQLite in the browser requires downloading an entire megabyte of WebAssembly, whereas the index of the site is only 148k.
 It's likely that for the number of posts currently on this blog, and for a great number more than that, that it would have been a net win as far as raw number of bytes transferred to use Lunr or Lyra and just let it grab the whole index up-front.
 I'm very happy with what I ended up with, though, and good old gzip cuts that megabyte of WASM down to a fairly-reasonable-for-2022 500k.
