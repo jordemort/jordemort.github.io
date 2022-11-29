@@ -7,6 +7,7 @@ description: "Things that I have done"
 
 I write articles for [Linux Weekly News](https://lwn.net):
 
+- November 29, 2002 - [Microblogging with ActivityPub](https://lwn.net/Articles/916154/)
 - October 18, 2022 - [Identity management for WireGuard](https://lwn.net/Articles/910766/)
 - September 13, 2022 - [LXC and LXD: a different container story](https://lwn.net/Articles/907613/)
 - August 23, 2022 - [The container orchestrator landscape](https://lwn.net/Articles/905164/)
