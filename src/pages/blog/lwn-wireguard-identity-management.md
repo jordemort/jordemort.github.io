@@ -1,6 +1,6 @@
 ---
 title: Identity management for WireGuard
-description: My latest LWN article
+description: AKA "Tailscale and its imitators"
 tags:
   - lwn
   - article
