@@ -73,7 +73,6 @@ It has been an enjoyable change of pace.
 I'm tagging posts about the site's development with <a class="p-category" href="/tags/jordemort.dev/">jordemort.dev</a>, if you're interested in how it's made.
 I am particularly pleased with the [client-side search](/blog/client-side-search/) I implemented.
 
-
 ### Contributions
 
 A selection of my contributions to open source projects:
