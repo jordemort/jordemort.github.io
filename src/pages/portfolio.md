@@ -14,9 +14,11 @@ description: "Things that I have done"
 - Senior Software Engineer @ [GitHub](https://github.com/), 2015-2020
 - Senior Software Engineer @ Cleversafe (now [IBM Cloud Object Storage](https://www.ibm.com/cloud/object-storage)), 2010-2015
 - Software Engineer @ CA Inc (now part of [Broadcom](https://www.broadcom.com/)), 2009-2010
-- Consultant @ Simple Logic (now defunct), 1990-2003, 2008-2009
-- Software Enginner @ [DNA Communications](https://www.dnacom.com/), 2005-2008
+- Consultant @ Simple Logic (now defunct), 2008-2009
+- Software Engineer @ [DNA Communications](https://www.dnacom.com/), 2005-2008
 - Adjunct Instructor @ [Kishwaukee College](https://kish.edu/), Spring 2005, Summer 2006
+- Consultant @ Simple Logic (now defunct), 1990-2003
+- Technician @ [DLS Internet Services](https://www.dls.net/), 1997-1999
 
 See [LinkedIn](https://www.linkedin.com/in/jordanwebbfromchicago/) for more details.
 
