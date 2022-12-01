@@ -5,7 +5,7 @@ description: "Things that I have done"
 
 ### Education
 
-- B.S. Computer Science @ [NIU](https://www.cs.niu.edu/), 2004
+- B.S., Computer Science @ [NIU](https://www.cs.niu.edu/), 2004
 - M.S., Computer Science @ [NIU](https://www.cs.niu.edu/), 2009
 
 ### Employment History
