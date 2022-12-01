@@ -10,6 +10,7 @@ description: "Things that I have done"
 
 ### Employment History
 
+- Consultant @ [Caketop](https://caketop.app), 2022-present
 - Staff Software Engineer @ [Seam](https://www.getseam.com/), 2020-2022
 - Senior Software Engineer @ [GitHub](https://github.com/), 2015-2020
 - Senior Software Engineer @ Cleversafe (now [IBM Cloud Object Storage](https://www.ibm.com/cloud/object-storage)), 2010-2015
