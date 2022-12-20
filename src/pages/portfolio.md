@@ -3,12 +3,17 @@ title: "Portfolio"
 description: "Things that I have done"
 ---
 
-### Education
+
+### Resume
+
+- [My resume, in PDF format](/jordan-webb-resume-december-2022.pdf)
+
+#### Education
 
 - B.S., Computer Science @ [NIU](https://www.cs.niu.edu/), 2004
 - M.S., Computer Science @ [NIU](https://www.cs.niu.edu/), 2009
 
-### Employment History
+#### Employment History
 
 - Consultant @ [Caketop](https://caketop.app), 2022-present
 - Staff Software Engineer @ [Seam](https://www.getseam.com/), 2020-2022
