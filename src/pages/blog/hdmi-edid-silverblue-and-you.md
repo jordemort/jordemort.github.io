@@ -60,13 +60,15 @@ Switching from the Mac to the NUC, everything is fine; the Mac sees the monitor 
 Switching from the NUC to the Mac is not so happy; it doesn't have a built-in display, so when it's not the active port, it has zero monitors connected.
 Everything stays running and comes back fine when I switch back to the NUC, but having no monitors connected to it causes a different sort of problem.
 
+GNOME has RDP support by way of [gnome-remote-desktop](https://gitlab.gnome.org/GNOME/gnome-remote-desktop); this works great with Microsoft's [Remote Desktop](https://apps.apple.com/us/app/microsoft-remote-desktop/id1295203466?mt=12) client for the Mac, but only when a monitor is connected to the NUC.
+When there is no monitor connected, it doesn't work at all; instead, it gives me the dreaded "error 0x204."
+
+### Why, though?
+
 Most of my desire for a Linux desktop stems from one particular application; SSH is good to get most of my work done but sometimes I want to run [Ghidra](https://ghidra-sre.org/).
 Running it natively on the Mac is very painful because of the code signing stuff in macOS, and running it through XQuartz is [dicey](https://github.com/XQuartz/XQuartz/issues/31).
 
 Even though I have the KVM, I would also like to be able to connect to the desktop of the NUC remotely; I might want the NUC's desktop in a smaller window while I work on other things on the Mac, or I might want to access the desktop while not physically at my desk.
-
-GNOME has RDP support by way of [gnome-remote-desktop](https://gitlab.gnome.org/GNOME/gnome-remote-desktop); this works great with Microsoft's [Remote Desktop](https://apps.apple.com/us/app/microsoft-remote-desktop/id1295203466?mt=12) client for the Mac, but only when a monitor is connected to the NUC.
-When there is no monitor connected, it doesn't work at all; instead, it gives me the dreaded "error 0x204."
 
 ## Faking a connected monitor
 
