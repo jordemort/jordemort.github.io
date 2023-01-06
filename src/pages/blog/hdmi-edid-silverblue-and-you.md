@@ -199,7 +199,7 @@ $ cp benq.bin ~/Source/edid-hack/lib/firmware/edid
 Then, I make a package:
 
 ```
-$ cd ~/Source/edid-hack/lib/firmware/edid
+$ cd ~/Source/edid-hack
 $ fpm -s dir -t rpm -n benq-edid-firmware .
 ```
 
