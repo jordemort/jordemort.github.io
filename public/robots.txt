@@ -1,3 +1,6 @@
+User-agent: chat-gpt3
+Disallow: /
+
 User-agent: *
 Allow: /
 Sitemap: https://jordemort.dev/sitemap-index.xml
