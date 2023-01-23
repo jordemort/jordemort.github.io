@@ -1,6 +1,6 @@
 ---
 title: python-starlark-go 1.0.0 is now available
-description: I heard you like Python
+description: I heard you still like Python
 tags:
   - python
   - starlark
