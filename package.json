@@ -30,7 +30,7 @@
     "css": "^3.0.0",
     "html-to-text": "^9.0.3",
     "jsdom": "^21.0.0",
-    "metascraper": "^5.32.0",
+    "metascraper": "^5.33.7",
     "metascraper-description": "^5.31.3",
     "metascraper-title": "^5.31.3",
     "microformats-parser": "^1.4.1",
