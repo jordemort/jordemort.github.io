@@ -75,9 +75,13 @@ Otherwise, their job is to heckle the clerk.
 
 ### Exceptional cases
 
-If an audience member thinks deliberations are going on too long, they can call a vote for cloture. If the vote succeeds, all other audience members must immediately supply an interpretation or be quiet for the rest of the round. An audience member can only call for cloture once per round.
+If the applicant or an audience member disagrees with the clerk's judgement about what is offensive or innocent, they may dispute it.
+Disputes are resolved by a vote of the audience.
 
-Disagreements about what is offensive are also resolved by a vote of the audience.
+If an audience member thinks deliberations are going on too long, they can call for cloture.
+This is also decided by a vote of the audience.
+If the vote succeeds, all audience members who have not done so must immediately supply an interpretation or be quiet for the rest of the round.
+An individual audience member can only call for cloture once per round, but if a cloture vote fails, a different audience member may call for cloture later.
 
 In either case, if the vote of the audience ends in a tie, the clerk casts the deciding vote.
 
