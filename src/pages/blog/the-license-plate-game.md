@@ -45,6 +45,7 @@ Otherwise, their job is to heckle the clerk.
 ### How to play
 
 1. The applicant makes up a plate number, and secretly writes down the true meaning of their plate. The meaning may or may not be offensive (as defined by your local community standards.)
+    - You can make your own house rules for what sorts of plate numbers are allowed, but here's a starting point: up to 8 characters, A through Z and 0 through 9, spaces are allowed but don't count toward the limit. Some US states also allow special characters like a heart (:heart:) - feel free to adjust this to your taste or to better simulate your own state or country.
 
 2. The applicant reveals their plate number to the other players. The clerk has 5 seconds to announce what they think the true meaning of the plate is, and if it is approved or denied. If the clerk thinks the plate is offensive, they should deny the plate; otherwise, they should approve the plate. If 5 seconds pass without the clerk announcing a decision, the plate is considered to be approved.
 
