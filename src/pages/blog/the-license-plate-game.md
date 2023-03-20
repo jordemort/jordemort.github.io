@@ -95,6 +95,7 @@ To ensure that everyone has the most fun, each of the players should rotate thro
 You may also want to weight applicant wins more heavily; i.e. an applicant win is worth 3 victory points whereas a clerk win is only worth 1.
 
 Thinking up clever plates on the fly can be hard, so you might want to have a brainstorming session before playing, where all the players spend time thinking of and writing down ideas for plates to use when they are the applicant.
+Obviously, the players should keep their ideas secret from each other during this process, to avoid tipping off their future clerk.
 
 If you decide to play this, I'd love to know how it goes!
 Assorted ways to contact me can be found on the [front page](/).
