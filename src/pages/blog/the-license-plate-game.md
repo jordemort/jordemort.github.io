@@ -51,7 +51,7 @@ Otherwise, their job is to heckle the clerk.
     - The time limit is meant to simulate the experience of being an overworked clerk in an understaffed bureaucracy.
 
 3. Each audience member announces what they think the true meaning of the plate is. They may choose to agree with the clerk's interpretation, or supply their own. Audience members may discuss their interpretations with each other before committing to them. There is no hard time limit on audience deliberations.
-    - Think of the audience as other drivers who might notice the plate or get stuck behind it in traffic.
+    - Think of the audience as other people on the road who might notice the plate or get stuck behind it in traffic.
 
 4. The applicant reveals the true meaning of the plate.
 
