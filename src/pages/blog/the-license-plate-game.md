@@ -50,7 +50,7 @@ Otherwise, their job is to heckle the clerk.
 2. The applicant reveals their plate number to the other players. The clerk has 5 seconds to announce what they think the true meaning of the plate is, and if it is approved or denied. If the clerk thinks the plate is offensive, they should deny the plate; otherwise, they should approve the plate. If 5 seconds pass without the clerk announcing a decision, the plate is considered to be approved.
     - The time limit is meant to simulate the experience of being an overworked clerk in an understaffed bureaucracy.
 
-3. Each audience member announces what they think the true meaning of the plate is. They may choose to agree with the clerk's interpretation, or supply their own. There is no hard time limit on audience deliberations.
+3. Each audience member announces what they think the true meaning of the plate is. They may choose to agree with the clerk's interpretation, or supply their own. Audience members may discuss their interpretations with each other before committing to them. There is no hard time limit on audience deliberations.
     - Think of the audience as other drivers who might notice the plate or get stuck behind it in traffic.
 
 4. The applicant reveals the true meaning of the plate.
