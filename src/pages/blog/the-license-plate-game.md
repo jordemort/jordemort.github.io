@@ -33,7 +33,7 @@ The applicant must walk the line between fooling the clerk while still having th
 
 One player is the clerk.
 The clerk wins by correctly guessing the meaning of the plate, or what "most people" would say the plate means.
-If the clerk is fails at that, they may also win by denying an offensive plate, even if they got the meaning wrong.
+If the clerk fails at that, they may also win by denying an offensive plate, even if they got the meaning wrong.
 
 #### The audience
 
