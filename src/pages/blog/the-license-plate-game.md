@@ -54,13 +54,16 @@ Otherwise, their job is to heckle the clerk.
 
 ### Scoring
 
-1. If the clerk correctly guessed the true meaning of the plate, the clerk wins the round.
+1. If the clerk correctly guessed the true meaning of the plate and correctly judged it as either offensive or innocent, the clerk wins the round.
+    - Generally, if the clerk gets the meaning of the plate correct, then they will also get the judgement correct, but the clerk's judgement can be disputed by the applicant or any audience member; see "Exceptional cases" below.
 
 2. If the clerk incorrectly guessed the true meaning of the plate, but at least half of the audience agrees with their interpretation, the clerk wins the round.
+    - This discourages applicants from providing bad-faith interpretations of their plate numbers.
 
 3. If neither the clerk nor any member of the audience correctly guessed the true meaning of the plate, the round is a draw.
+    - This discourages applicants from providing completely inscrutable plate numbers.
 
-4. If the clerk guessed incorrectly, but at least one member of the audience guessed correctly:
+4. Otherwise, at least one person other than the applicant has correctly guessed the true meaning of the plate:
 
     - If the meaning of the plate is offensive, and the clerk denied it, the clerk wins the round.
 
