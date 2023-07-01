@@ -6,7 +6,7 @@ description: "Things that I have done"
 
 ### Resume
 
-- [My resume, in PDF format](/jordan-webb-resume-december-2022.pdf)
+- [My resume, in PDF format](/jordan-webb-resume-june-2023.pdf)
 
 #### Education
 
@@ -15,7 +15,8 @@ description: "Things that I have done"
 
 #### Employment History
 
-- Consultant @ [Caketop](https://caketop.app), 2022-present
+- Embedded Linux Development Team Lead @ [ID Technologies](https://www.idtec.com/), 2023-present
+- Independent Consultant @ [Caketop](https://caketop.app), 2022-present
 - Staff Software Engineer @ [Seam](https://www.getseam.com/), 2020-2022
 - Senior Software Engineer @ [GitHub](https://github.com/), 2015-2020
 - Senior Software Engineer @ Cleversafe (now [IBM Cloud Object Storage](https://www.ibm.com/cloud/object-storage)), 2010-2015
