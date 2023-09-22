@@ -86,6 +86,7 @@ I am particularly pleased with the [client-side search](/blog/client-side-search
 
 A selection of my contributions to open source projects:
 
+- I made [virtual serial ports drop carrier when they are closed](https://github.com/dosemu2/dosemu2/pull/2102) in [dosemu2](https://github.com/dosemu2/dosemu2)
 - I added [support for multiple peers, tunnels and proxies](https://github.com/octeep/wireproxy/pull/47) to [wireproxy](https://github.com/octeep/wireproxy/)
 - I fixed [compatibility with FFmpeg 5](https://github.com/raspberrypi/libcamera-apps/pull/335) in [libcamera-apps](https://github.com/raspberrypi/libcamera-apps/)
 - I added [support for X11 forwarding](https://github.com/lima-vm/lima/pull/877) to [lima](https://github.com/lima-vm/lima/)
