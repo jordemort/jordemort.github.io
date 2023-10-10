@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@astrojs/vue": "^1.2.1",
-    "@fontsource/source-code-pro": "^4.5.12",
+    "@fontsource/source-code-pro": "^4.5.14",
     "@fontsource/source-sans-pro": "^4.5.11",
     "@types/html-to-text": "^9.0.0",
     "@types/metascraper": "^5.14.1",
