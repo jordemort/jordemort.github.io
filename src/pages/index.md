@@ -10,6 +10,7 @@ I'm also [writing articles](portfolio) and investing tiny amounts of money in fr
 I am most comfortable programming in Python or C; I can also be happy and productive in Go, Perl, or Ruby.
 I am very well-versed in bash and POSIX shell scripting.
 I know just enough JavaScript and TypeScript to keep myself out of trouble.
+Lately I've been teaching myself Rust, and enjoying it.
 
 I'm into Docker, OSTree, Podman, and systemd.
 When I'm not running a distribution I built myself, I tend to prefer Debian, Ubuntu, or, for smaller devices, OpenWRT.
