@@ -15,18 +15,18 @@ description: "Things that I have done"
 
 #### Employment History
 
-- Embedded Linux Development Team Lead @ [ID Technologies](https://www.idtec.com/), 2023-present
-- Independent Consultant @ [Caketop](https://caketop.app), 2022-present
-- Staff Software Engineer @ [Seam](https://www.getseam.com/), 2020-2022
-- Senior Software Engineer @ [GitHub](https://github.com/), 2015-2020
-- Senior Software Engineer @ Cleversafe (now [IBM Cloud Object Storage](https://www.ibm.com/cloud/object-storage)), 2010-2015
-- Software Engineer @ CA (now part of [Broadcom](https://www.broadcom.com/)), 2009-2010
-- Consultant @ Simple Logic (now defunct), 2008-2009
-- Software Engineer @ [DNA Communications](https://www.dnacom.com/), 2005-2008
+- Embedded Linux Development Team Lead @ [ID Technologies](https://www.idtec.com/), May 2023 - Nov 2023
+- Independent Consultant @ [Caketop](https://caketop.app), Feb 2022 - Nov 2023
+- Staff Software Engineer @ [Seam](https://www.getseam.com/), Nov 2020 -  Feb 2022
+- Senior Software Engineer @ [GitHub](https://github.com/), Dec 2015 - Nov 2020
+- Senior Software Engineer @ Cleversafe (now [IBM Cloud Object Storage](https://www.ibm.com/cloud/object-storage)), Aug 2010 - Dec 2015
+- Software Engineer @ CA (now part of [Broadcom](https://www.broadcom.com/)), Jun 2009 - Aug 2010
+- Consultant @ Simple Logic (now defunct), Feb 2008 -  May 2009
+- Software Engineer @ [DNA Communications](https://www.dnacom.com/), Jul 2005 -  Feb 2008
 - Adjunct Instructor @ [Kishwaukee College](https://kish.edu/), Spring 2005, Summer 2006
 - Undergraduate Teaching Fellow @ [NIU](https://www.cs.niu.edu/), Autumn 2003 - Autumn 2004
-- Consultant @ Simple Logic (now defunct), 1999-2003
-- Technician @ [DLS Internet Services](https://www.dls.net/), 1997-1999
+- Consultant @ Simple Logic (now defunct), May 1999 - Jan 2003
+- Technician @ [DLS Internet Services](https://www.dls.net/), 1997 - 1999
 
 See [LinkedIn](https://www.linkedin.com/in/jordanwebbfromchicago/) for more details.
 
