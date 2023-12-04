@@ -15,6 +15,7 @@ description: "Things that I have done"
 
 #### Employment History
 
+- Staff Software Engineer @ [Danger Devices](https://dangerdevices.com/), Dec 2023 - Present
 - Embedded Linux Development Team Lead @ [ID Technologies](https://www.idtec.com/), May 2023 - Nov 2023
 - Independent Consultant @ [Caketop](https://caketop.app), Feb 2022 - Nov 2023
 - Staff Software Engineer @ [Seam](https://www.getseam.com/), Nov 2020 -  Feb 2022
