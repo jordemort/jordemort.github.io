@@ -23,4 +23,4 @@ jobs:
           cd src/kroki && docker-compose up -d && sleep 10
 
       - name: Install, build, and upload your site
-        uses: withastro/action@v0
+        uses: withastro/action@v1
