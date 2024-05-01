@@ -1,0 +1,26 @@
+name: Test building blog
+
+on:
+  pull_request:
+
+# Allow this job to clone the repo and create a page deployment
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      TZ: America/Chicago
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Start Kroki
+        run: |
+          cd src/kroki && docker-compose up -d && sleep 10
+
+      - name: Install, build, and upload your site
+        uses: withastro/action@v0
