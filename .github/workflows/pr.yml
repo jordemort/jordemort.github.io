@@ -22,5 +22,13 @@ jobs:
         run: |
           cd src/kroki && docker-compose up -d && sleep 10
 
-      - name: Install, build, and upload your site
-        uses: withastro/action@v1
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build site
+        run: npm run astro build
