@@ -68,8 +68,9 @@ This was a particularly shitty experience because the screen is angled in a way 
 At this point I decided the whole endeavor was untenable.
 I was shopping for a week's worth of groceries for my family and had about 70 items on my list, and I came to the conclusion that repeating this song and dance 69 more times would not be very nice at all.
 I put the strawberries back, logged out of the cart, took my bags back to the car, and drove over to the local incarnation of Kroger, where I was able to complete my shopping without having to deal with any testy machines.
-Now that *Just Walk Out* is gone, there is no reason whatsoever for me to choose Amazon over any of their competitors for groceries, and many reasons not to (like that shelf full of green potatoes.)
+Now that *Just Walk Out* is gone, there is no reason whatsoever for me to choose Amazon over any of their competitors for groceries, and many reasons not to, like that shelf full of green potatoes.
 
 In short, the experience of using the Dash Cart is very similar to using one of those early self-checkout machines (*UNEXPECTED ITEM IN BAGGING AREA*) except that you push the machine around with you in the store and it harasses you the entire time that you're shopping.
+It should be embarrassing to Amazon that these things can't reliably scan a bag of grapes with a sensor package larger than many "self-driving" vehicles.
 The only good thing about these carts is that they're so poorly designed that they surely won't last.
 If rain, cars, and the rough-and-tumble life of a grocery cart in a parking lot don't do them all in by the end of summer, a Chicago winter will surely finish the rest of them off.
