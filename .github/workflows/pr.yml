@@ -30,9 +30,6 @@ jobs:
       - name: List dependencies
         run: npm ls --all || true
 
-      - name: List npm env
-        run: env | grep --ignore-case npm
-
       - name: Install dependencies
         run: npm install
 
