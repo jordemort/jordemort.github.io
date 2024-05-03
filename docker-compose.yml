@@ -1,0 +1,44 @@
+services:
+  kroki:
+    image: yuzutech/kroki:latest
+    depends_on:
+      - blockdiag
+      - mermaid
+      - bpmn
+      - excalidraw
+    environment:
+      - KROKI_BLOCKDIAG_HOST=blockdiag
+      - KROKI_MERMAID_HOST=mermaid
+      - KROKI_BPMN_HOST=bpmn
+      - KROKI_EXCALIDRAW_HOST=excalidraw
+
+  blockdiag:
+    image: yuzutech/kroki-blockdiag:latest
+    expose:
+      - "8001"
+
+  mermaid:
+    image: yuzutech/kroki-mermaid:latest
+    expose:
+      - "8002"
+
+  bpmn:
+    image: yuzutech/kroki-bpmn:latest
+    expose:
+      - "8003"
+
+  excalidraw:
+    image: yuzutech/kroki-excalidraw:latest
+    expose:
+      - "8004"
+
+  astro:
+    image: ghcr.io/jordemort/jordemort-blog-builder:latest
+    build:
+      context: .
+      target: astro
+    depends_on:
+      - kroki
+    volumes:
+      - .:/usr/src/jordemort.dev
+    working_dir: /usr/src/jordemort.dev
