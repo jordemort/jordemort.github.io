@@ -45,13 +45,11 @@ jobs:
       - name: Pull Kroki containers
         run: docker compose pull kroki blockdiag mermaid bpmn excalidraw
 
-      - name: Try to pull builder
-        run: docker compose pull astro || true
-
       - name: Build and maybe push builder
         uses: docker/build-push-action@v5
         with:
           context: .
+          cache-from: type=registry,ghcr.io/jordemort/jordemort-blog-builder:latest
           cache-to: type=inline
           labels: ${{ steps.meta.outputs.labels }}
           pull: true
