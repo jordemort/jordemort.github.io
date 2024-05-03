@@ -81,4 +81,4 @@ jobs:
           pull: true
           push: true
           tags: ghcr.io/jordemort/jordemort-blog:latest
-          target: dependencies
+          target: site
