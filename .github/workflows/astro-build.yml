@@ -30,7 +30,7 @@ jobs:
           path: node_modules
 
       - name: Pull Kroki containers
-        run: docker compose pull blockdiag mermaid bpmn excalidraw
+        run: docker compose pull kroki blockdiag mermaid bpmn excalidraw
 
       - name: Try to pull builder
         run: docker compose pull astro || true
