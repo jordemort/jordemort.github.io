@@ -50,7 +50,7 @@ export default defineConfig({
       remarkMath,
       remarkPluginOembed,
       [remarkKroki, {
-        server: "http://127.0.0.1:62580",
+        server: "http://kroki:62580",
         alias: ["graphviz", "mermaid", "plantuml", "svgbob"],
         inline: true
       }]

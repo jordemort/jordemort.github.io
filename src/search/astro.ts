@@ -25,7 +25,7 @@ export default function search(): AstroIntegration {
             continue;
           }
 
-          let url = config.site! + pathname;
+          let url = config.site! + '/' + pathname;
           let htmlpath = dist + pathname;
 
           if (htmlpath.endsWith("/")) {
