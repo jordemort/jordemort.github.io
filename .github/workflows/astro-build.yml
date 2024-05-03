@@ -36,12 +36,13 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           cache-to: type=inline
+          pull: true
           push: ${{ github.event_name == 'push' }}
           tags: ghcr.io/jordemort/jordemort-blog-builder:latest
           target: astro
 
       - name: Build site
-        run: docker compose run --rm astro npm build
+        run: docker compose run --rm astro npm run build
 
       - name: Build and push dependencies
         uses: docker/build-push-action@v5
