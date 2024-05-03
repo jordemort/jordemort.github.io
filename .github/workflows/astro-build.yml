@@ -49,7 +49,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          cache-from: type=registry,ghcr.io/jordemort/jordemort-blog-builder:latest
+          cache-from: type=registry,ref=ghcr.io/jordemort/jordemort-blog-builder:latest
           cache-to: type=inline
           labels: ${{ steps.meta.outputs.labels }}
           pull: true
