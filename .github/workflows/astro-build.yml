@@ -65,6 +65,8 @@ jobs:
         if: ${{ github.event_name == 'push' }}
         with:
           context: .
+          cache-from: type=registry,ref=ghcr.io/jordemort/jordemort-blog-dependencies:latest
+          cache-to: type=inline
           labels: ${{ steps.meta.outputs.labels }}
           push: true
           tags: ghcr.io/jordemort/jordemort-blog-dependencies:latest
@@ -75,6 +77,8 @@ jobs:
         if: ${{ github.event_name == 'push' }}
         with:
           context: .
+          cache-from: type=registry,ref=ghcr.io/jordemort/jordemort-blog:latest
+          cache-to: type=inline
           labels: ${{ steps.meta.outputs.labels }}
           pull: true
           push: true
