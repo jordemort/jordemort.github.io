@@ -52,7 +52,7 @@ jobs:
           cache-from: type=registry,ref=ghcr.io/jordemort/jordemort-blog-builder:latest
           cache-to: type=inline
           labels: ${{ steps.meta.outputs.labels }}
-          output: type=image,name=ghcr.io/jordemort/jordemort-blog-builder:latest,push=${{ github.event_name == 'push' }}
+          outputs: type=image,name=ghcr.io/jordemort/jordemort-blog-builder:latest,push=${{ github.event_name == 'push' }}
           pull: true
           tags: ghcr.io/jordemort/jordemort-blog-builder:latest
           target: astro
