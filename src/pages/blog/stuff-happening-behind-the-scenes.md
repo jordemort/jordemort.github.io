@@ -1,6 +1,6 @@
 ---
 title: Stuff happening behind the scenes
-description: There is a lot of yak hair this site's plumbing
+description: There is a lot of yak hair in this site's plumbing
 tags:
   - jordemort.dev
   - oembed
